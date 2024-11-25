@@ -1,7 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {getBtnEmodji} from '../../data/btnEmodji';
 
-const SelectMoodBtn = ({mood, onPress, icon}) => {
+const SelectMoodBtn = ({mood, onPress}) => {
   return (
     <TouchableOpacity style={styles.moodButton} onPress={() => onPress(mood)}>
       <View>{getBtnEmodji(mood)}</View>

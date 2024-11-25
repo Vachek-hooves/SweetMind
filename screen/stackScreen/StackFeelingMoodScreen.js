@@ -60,15 +60,17 @@ const StackFeelingMoodScreen = ({route}) => {
             content={currentTask.quote}
             mainButtonText="New quote"
             onMainButtonPress={getNewQuote}
+            isTaskCard={false}
           />
 
           {/* Task Card */}
           <ActionCard
-            title="Your task today:"
-            content={currentTask.task}
-            mainButtonText="Start task"
-            onMainButtonPress={() => {}}
-          />
+  title="Your task today:"
+  content={currentTask.task}
+  mainButtonText="Start task"
+  onMainButtonPress={() => {}}
+  isTaskCard={true}
+/>
 
           {/* Date Display */}
           <View style={styles.dateContainer}>
