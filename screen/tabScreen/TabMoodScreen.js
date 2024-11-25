@@ -4,6 +4,7 @@ import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import {useNavigation} from '@react-navigation/native';
 import {CalmIcon} from '../../components/animatedIcons';
+import ActionCard from '../../components/ui/ActionCard';
 
 const TabMoodScreen = () => {
   const navigation = useNavigation();
@@ -11,6 +12,7 @@ const TabMoodScreen = () => {
   const handleMoodSelect = mood => {
     navigation.navigate('StackFeelingMoodScreen', {mood});
   };
+  const getNextQuote = () => {};
 
   return (
     <MainTabLayout>
@@ -29,23 +31,13 @@ const TabMoodScreen = () => {
           </View>
 
           {/* Daily Quote Card */}
-          <View style={styles.quoteCard}>
-            <Text style={styles.quoteTitle}>Daily Quote</Text>
-            <Text style={styles.quoteText}>
-              Every day brings new opportunities to shine.
-            </Text>
-            <View style={styles.quoteActions}>
-              <TouchableOpacity style={styles.quoteButton}>
-                <Text style={styles.buttonText}>icon New quote</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconButton}>
-                <Text>🔄</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconButton}>
-                <Text>👍</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+
+          <ActionCard
+            title="Happy Quote"
+            content={'Every day brings new opportunities to shine.'}
+            mainButtonText="New quote"
+            onMainButtonPress={getNextQuote}
+          />
 
           {/* Mood Selection Section */}
           <View style={styles.moodSection}>
@@ -110,43 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#fff',
   },
-  quoteCard: {
-    backgroundColor: '#fff',
-    borderRadius: 24,
-    padding: 20,
-    marginBottom: 30,
-  },
-  quoteTitle: {
-    fontSize: 22,
-    color: '#FF1FA5',
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-  quoteText: {
-    fontSize: 18,
-    color: '#FF1FA5',
-    marginBottom: 15,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-  quoteActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  quoteButton: {
-    backgroundColor: '#FF1FA5',
-    borderRadius: 16,
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    marginRight: 10,
-    height: 42,
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
+
   iconButton: {
     padding: 8,
     marginHorizontal: 5,

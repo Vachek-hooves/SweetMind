@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useAppContext} from '../../store/context';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import MainStackLayout from '../../components/Layout/MainStackLayout';
+import ActionCard from '../../components/ui/ActionCard';
 
 const StackFeelingMoodScreen = ({route}) => {
   const {mood} = route.params;
@@ -65,7 +66,13 @@ const StackFeelingMoodScreen = ({route}) => {
           </View>
 
           {/* Quote Card */}
-          <View style={styles.card}>
+          <ActionCard
+            title="Happy Quote"
+            content={currentTask.quote}
+            mainButtonText="New quote"
+            onMainButtonPress={getNewQuote}
+          />
+          {/* <View style={styles.card}>
             <Text style={styles.cardTitle}>Happy Quote</Text>
             <Text style={styles.quoteText}>{currentTask.quote}</Text>
             <View style={styles.actionButtons}>
@@ -79,10 +86,10 @@ const StackFeelingMoodScreen = ({route}) => {
                 <Text style={styles.iconText}>👍</Text>
               </TouchableOpacity>
             </View>
-          </View>
+          </View> */}
 
           {/* Task Card */}
-          <View style={styles.card}>
+          {/* <View style={styles.card}>
             <Text style={styles.cardTitle}>Your task today:</Text>
             <Text style={styles.taskText}>{currentTask.task}</Text>
             <View style={styles.actionButtons}>
@@ -96,7 +103,14 @@ const StackFeelingMoodScreen = ({route}) => {
                 <Text style={styles.iconText}>👍</Text>
               </TouchableOpacity>
             </View>
-          </View>
+          </View> */}
+          {/* Task Card */}
+          <ActionCard
+            title="Your task today:"
+            content={currentTask.task}
+            mainButtonText="Start task"
+            onMainButtonPress={() => {}}
+          />
 
           {/* Date Display */}
           <View style={styles.dateContainer}>
@@ -135,52 +149,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     lineHeight: 22,
-  },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    padding: 20,
-    marginBottom: 20,
-  },
-  cardTitle: {
-    fontSize: 16,
-    color: '#FF68A8',
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  quoteText: {
-    fontSize: 16,
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 15,
-  },
-  taskText: {
-    fontSize: 16,
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 15,
-  },
-  actionButtons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  mainButton: {
-    backgroundColor: '#FF68A8',
-    borderRadius: 20,
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    marginRight: 10,
-  },
-  mainButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  iconButton: {
-    padding: 8,
-    marginHorizontal: 5,
-  },
-  iconText: {
-    fontSize: 18,
   },
   dateContainer: {
     alignItems: 'center',
