@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
-import MainTabLayout from '../../components/Layout/MainTabLayout'
-import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient'
-import { useNavigation } from '@react-navigation/native'
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import React from 'react';
+import MainTabLayout from '../../components/Layout/MainTabLayout';
+import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
+import {useNavigation} from '@react-navigation/native';
 
 const TabMoodScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  const handleMoodSelect = (mood) => {
-    navigation.navigate('StackFeelingMoodScreen', { mood })
-  }
+  const handleMoodSelect = mood => {
+    navigation.navigate('StackFeelingMoodScreen', {mood});
+  };
 
   return (
     <MainTabLayout>
@@ -35,7 +35,7 @@ const TabMoodScreen = () => {
             </Text>
             <View style={styles.quoteActions}>
               <TouchableOpacity style={styles.quoteButton}>
-                <Text style={styles.buttonText}>New quote</Text>
+                <Text style={styles.buttonText}>icon New quote</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.iconButton}>
                 <Text>🔄</Text>
@@ -48,26 +48,25 @@ const TabMoodScreen = () => {
 
           {/* Mood Selection Section */}
           <View style={styles.moodSection}>
-            <Text style={styles.moodTitle}>How are you feeling today?</Text>
-            
-            <TouchableOpacity 
+            <Text style={styles.moodTitle}>
+              How are you{'\n'} feeling today?
+            </Text>
+
+            <TouchableOpacity
               style={styles.moodButton}
-              onPress={() => handleMoodSelect('happy')}
-            >
+              onPress={() => handleMoodSelect('happy')}>
               <Text style={styles.moodText}>😊 Happy</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.moodButton}
-              onPress={() => handleMoodSelect('calm')}
-            >
+              onPress={() => handleMoodSelect('calm')}>
               <Text style={styles.moodText}>😌 Calm</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.moodButton}
-              onPress={() => handleMoodSelect('reflective')}
-            >
+              onPress={() => handleMoodSelect('reflective')}>
               <Text style={styles.moodText}>🤔 Reflective</Text>
             </TouchableOpacity>
           </View>
@@ -77,14 +76,14 @@ const TabMoodScreen = () => {
         </View>
       </CustomLinearGradient>
     </MainTabLayout>
-  )
-}
+  );
+};
 
-export default TabMoodScreen
+export default TabMoodScreen;
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent:'center',
+    justifyContent: 'center',
     flex: 1,
     padding: 20,
   },
@@ -112,31 +111,36 @@ const styles = StyleSheet.create({
   },
   quoteCard: {
     backgroundColor: '#fff',
-    borderRadius: 20,
+    borderRadius: 24,
     padding: 20,
     marginBottom: 30,
   },
   quoteTitle: {
-    fontSize: 16,
-    color: '#FF68A8',
+    fontSize: 22,
+    color: '#FF1FA5',
     fontWeight: 'bold',
     marginBottom: 10,
+    textAlign: 'center',
   },
   quoteText: {
-    fontSize: 16,
-    color: '#333',
+    fontSize: 18,
+    color: '#FF1FA5',
     marginBottom: 15,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   quoteActions: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   quoteButton: {
-    backgroundColor: '#FF68A8',
-    borderRadius: 20,
+    backgroundColor: '#FF1FA5',
+    borderRadius: 16,
     paddingVertical: 8,
     paddingHorizontal: 15,
     marginRight: 10,
+    height: 42,
+    justifyContent: 'center',
   },
   buttonText: {
     color: '#fff',
@@ -145,30 +149,35 @@ const styles = StyleSheet.create({
   iconButton: {
     padding: 8,
     marginHorizontal: 5,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingHorizontal: 22,
+    borderColor: '#FF1FA5',
   },
   moodSection: {
     marginBottom: 30,
   },
   moodTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '900',
     color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
   },
   moodButton: {
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 24,
     padding: 15,
     marginBottom: 10,
   },
   moodText: {
-    fontSize: 16,
-    color: '#333',
+    fontSize: 22,
+    color: '#FF1FA5',
+    fontWeight: '800',
   },
   dateText: {
     fontSize: 16,
     color: '#fff',
     textAlign: 'center',
   },
-})
+});
