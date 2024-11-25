@@ -1,2 +1,3 @@
 import WelcomeScreen from './WelcomeScreen';
-export {WelcomeScreen};
+import StackFeelingMoodScreen from './StackFeelingMoodScreen';
+export {WelcomeScreen, StackFeelingMoodScreen};
