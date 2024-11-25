@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import MainTabLayout from '../../components/Layout/MainTabLayout'
+import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient'
 
 const TabMoodScreen = () => {
   return (
-    <View>
-      <Text>TabMoodScreen</Text>
-    </View>
+    <MainTabLayout>
+      <CustomLinearGradient>
+        
+      </CustomLinearGradient>
+    </MainTabLayout>
   )
 }
 
