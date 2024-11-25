@@ -4,6 +4,8 @@ import {useAppContext} from '../../store/context';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import MainStackLayout from '../../components/Layout/MainStackLayout';
 import ActionCard from '../../components/ui/ActionCard';
+import {getMoodEmoji} from '../../data/moodEmodji';
+import ReturnIcon from '../../components/iconsComponent/ReturnIcon';
 
 const StackFeelingMoodScreen = ({route}) => {
   const {mood} = route.params;
@@ -39,39 +41,6 @@ const StackFeelingMoodScreen = ({route}) => {
     );
   }
 
-  const getMoodEmoji = moodType => {
-    switch (moodType) {
-      case 'happy':
-        return (
-          <Image
-            source={require('../../assets/image/icon/happyIcon.png')}
-            style={styles.icon}
-          />
-        );
-      case 'calm':
-        return (
-          <Image
-            source={require('../../assets/image/icon/calmIcon.png')}
-            style={styles.icon}
-          />
-        );
-      case 'reflective':
-        return (
-          <Image
-            source={require('../../assets/image/icon/reflectionIcon.png')}
-            style={styles.icon}
-          />
-        );
-      default:
-        return (
-          <Image
-            source={require('../../assets/image/icon/happyIcon.png')}
-            style={styles.icon}
-          />
-        );
-    }
-  };
-
   return (
     <MainStackLayout>
       <CustomLinearGradient>
@@ -92,38 +61,7 @@ const StackFeelingMoodScreen = ({route}) => {
             mainButtonText="New quote"
             onMainButtonPress={getNewQuote}
           />
-          {/* <View style={styles.card}>
-            <Text style={styles.cardTitle}>Happy Quote</Text>
-            <Text style={styles.quoteText}>{currentTask.quote}</Text>
-            <View style={styles.actionButtons}>
-              <TouchableOpacity style={styles.mainButton} onPress={getNewQuote}>
-                <Text style={styles.mainButtonText}>New quote</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconButton}>
-                <Text style={styles.iconText}>🔄</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconButton}>
-                <Text style={styles.iconText}>👍</Text>
-              </TouchableOpacity>
-            </View>
-          </View> */}
 
-          {/* Task Card */}
-          {/* <View style={styles.card}>
-            <Text style={styles.cardTitle}>Your task today:</Text>
-            <Text style={styles.taskText}>{currentTask.task}</Text>
-            <View style={styles.actionButtons}>
-              <TouchableOpacity style={styles.mainButton}>
-                <Text style={styles.mainButtonText}>Start task</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconButton}>
-                <Text style={styles.iconText}>🔄</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.iconButton}>
-                <Text style={styles.iconText}>👍</Text>
-              </TouchableOpacity>
-            </View>
-          </View> */}
           {/* Task Card */}
           <ActionCard
             title="Your task today:"
@@ -137,6 +75,7 @@ const StackFeelingMoodScreen = ({route}) => {
             <Text style={styles.dateText}>12.03.2024</Text>
           </View>
         </View>
+        <ReturnIcon />
       </CustomLinearGradient>
     </MainStackLayout>
   );
@@ -177,9 +116,5 @@ const styles = StyleSheet.create({
   dateText: {
     color: '#fff',
     fontSize: 16,
-  },
-  icon: {
-    width: 100,
-    height: 100,
   },
 });
