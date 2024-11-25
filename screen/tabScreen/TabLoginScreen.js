@@ -1,14 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import MainTabLayout from '../../components/Layout/MainTabLayout';
 
 const TabLoginScreen = () => {
-  return (
-    <View>
-      <Text>TabLoginScreen</Text>
-    </View>
-  )
-}
+  return <MainTabLayout></MainTabLayout>;
+};
 
-export default TabLoginScreen
+export default TabLoginScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
