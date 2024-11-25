@@ -1,5 +1,4 @@
-import {StyleSheet, Text, View, ImageBackground} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet, ImageBackground} from 'react-native';
 
 const MainTabLayout = ({children}) => {
   return (

@@ -1,14 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, ImageBackground} from 'react-native';
 
-const MainStackLayout = () => {
+const MainStackLayout = ({children}) => {
   return (
-    <View>
-      <Text>MainStackLayout</Text>
-    </View>
-  )
-}
+    <ImageBackground
+      source={require('../../assets/image/bg/bg.png')}
+      style={styles.backgroundImage}>
+      {children}
+    </ImageBackground>
+  );
+};
 
-export default MainStackLayout
+export default MainStackLayout;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
