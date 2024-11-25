@@ -1,4 +1,5 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const ActionCard = ({title, content, mainButtonText, onMainButtonPress}) => {
   return (
@@ -10,10 +11,10 @@ const ActionCard = ({title, content, mainButtonText, onMainButtonPress}) => {
           <Text style={styles.mainButtonText}>{mainButtonText}</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.iconButton}>
-          <Text style={styles.iconText}>�</Text>
+          <Icon name="smile-o" size={24} color="#FF1FA5" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.iconButton}>
-          <Text style={styles.iconText}>👍</Text>
+          <Icon name="thumbs-up" size={24} color="#FF1FA5" />
         </TouchableOpacity>
       </View>
     </View>

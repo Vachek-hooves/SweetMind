@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useAppContext} from '../../store/context';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
@@ -42,13 +42,33 @@ const StackFeelingMoodScreen = ({route}) => {
   const getMoodEmoji = moodType => {
     switch (moodType) {
       case 'happy':
-        return '😊';
+        return (
+          <Image
+            source={require('../../assets/image/icon/happyIcon.png')}
+            style={styles.icon}
+          />
+        );
       case 'calm':
-        return '😌';
+        return (
+          <Image
+            source={require('../../assets/image/icon/calmIcon.png')}
+            style={styles.icon}
+          />
+        );
       case 'reflective':
-        return '🤔';
+        return (
+          <Image
+            source={require('../../assets/image/icon/reflectionIcon.png')}
+            style={styles.icon}
+          />
+        );
       default:
-        return '😊';
+        return (
+          <Image
+            source={require('../../assets/image/icon/happyIcon.png')}
+            style={styles.icon}
+          />
+        );
     }
   };
 
@@ -157,5 +177,9 @@ const styles = StyleSheet.create({
   dateText: {
     color: '#fff',
     fontSize: 16,
+  },
+  icon: {
+    width: 100,
+    height: 100,
   },
 });

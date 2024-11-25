@@ -5,6 +5,9 @@ import CustomLinearGradient from '../../components/styledComponents/CustomLinear
 import {useNavigation} from '@react-navigation/native';
 import {CalmIcon} from '../../components/animatedIcons';
 import ActionCard from '../../components/ui/ActionCard';
+import SelectMoodBtn from '../../components/ui/SelectMoodBtn';
+
+const moods = ['happy', 'calm', 'reflective'];
 
 const TabMoodScreen = () => {
   const navigation = useNavigation();
@@ -44,24 +47,13 @@ const TabMoodScreen = () => {
             <Text style={styles.moodTitle}>
               How are you{'\n'} feeling today?
             </Text>
-
-            <TouchableOpacity
-              style={styles.moodButton}
-              onPress={() => handleMoodSelect('happy')}>
-              <Text style={styles.moodText}>😊 Happy</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.moodButton}
-              onPress={() => handleMoodSelect('calm')}>
-              <Text style={styles.moodText}>😌 Calm</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.moodButton}
-              onPress={() => handleMoodSelect('reflective')}>
-              <Text style={styles.moodText}>🤔 Reflective</Text>
-            </TouchableOpacity>
+            {moods.map(mood => (
+              <SelectMoodBtn
+                key={mood}
+                mood={mood}
+                onPress={handleMoodSelect}
+              />
+            ))}
           </View>
 
           {/* Date Display */}
@@ -121,17 +113,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  moodButton: {
-    backgroundColor: '#fff',
-    borderRadius: 24,
-    padding: 15,
-    marginBottom: 10,
-  },
-  moodText: {
-    fontSize: 22,
-    color: '#FF1FA5',
-    fontWeight: '800',
-  },
+  // moodButton: {
+  //   backgroundColor: '#fff',
+  //   borderRadius: 24,
+  //   padding: 15,
+  //   marginBottom: 10,
+  // },
+  // moodText: {
+  //   fontSize: 22,
+  //   color: '#FF1FA5',
+  //   fontWeight: '800',
+  // },
   dateText: {
     fontSize: 16,
     color: '#fff',
