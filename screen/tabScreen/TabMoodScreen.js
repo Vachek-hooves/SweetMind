@@ -3,6 +3,7 @@ import React from 'react';
 import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import {useNavigation} from '@react-navigation/native';
+import {CalmIcon} from '../../components/animatedIcons';
 
 const TabMoodScreen = () => {
   const navigation = useNavigation();
