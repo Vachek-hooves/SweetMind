@@ -1,5 +1,5 @@
 import {StyleSheet, Image} from 'react-native';
-export const getMoodEmoji = moodType => {
+export const getBtnEmodji = moodType => {
   switch (moodType) {
     case 'happy':
       return (
@@ -34,9 +34,7 @@ export const getMoodEmoji = moodType => {
 
 const styles = StyleSheet.create({
   icon: {
-    width: 100,
-    height: 100,
+    width: 30,
+    height: 30,
   },
 });
-
-
