@@ -1,48 +1,47 @@
 import {useContext, createContext, useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {feeling} from '../data/feeling';
+import {feelingsService} from './utils';
 
-export const CreateContext = createContext({});
+export const CreateContext = createContext({
+  feelings: [],
+  updateFeelings: () => {},
+  isLoading: Boolean,
+});
 
 export const AppContext = ({children}) => {
   const [feelings, setFeelings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize feelings data
-  const initializeFeelings = async () => {
-    try {
-      // Check if feelings data exists in AsyncStorage
-      const storedFeelings = await AsyncStorage.getItem('feelings');
-      
-      if (!storedFeelings) {
-        // If no data exists, store the initial data from feeling.js
-        await AsyncStorage.setItem('feelings', JSON.stringify(feeling));
-        setFeelings(feeling);
-      } else {
-        // If data exists, load it
-        setFeelings(JSON.parse(storedFeelings));
-      }
-    } catch (error) {
-      console.error('Error initializing feelings:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
-  // Update feelings in AsyncStorage
-  const updateFeelings = async (newFeelings) => {
+  useEffect(() => {
+    const loadFellings = async () => {
+      try {
+        const data = await feelingsService.initializeFeelings();
+        setFeelings(data);
+      } catch (error) {
+        console.error('Error loading feelings:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadFellings();
+  }, []);
+
+  // Update feelings
+  const updateFeelings = async newFeelings => {
     try {
-      await AsyncStorage.setItem('feelings', JSON.stringify(newFeelings));
-      setFeelings(newFeelings);
+      const updatedFeelings = await feelingsService.updateFeelings(newFeelings);
+      if (updatedFeelings) {
+        setFeelings(updatedFeelings);
+      }
     } catch (error) {
       console.error('Error updating feelings:', error);
     }
   };
 
-  // Initialize data when component mounts
-  useEffect(() => {
-    initializeFeelings();
-  }, []);
+  
 
   const value = {
     feelings,
@@ -50,7 +49,9 @@ export const AppContext = ({children}) => {
     isLoading
   };
 
-  return <CreateContext.Provider value={value}>{children}</CreateContext.Provider>;
+  return (
+    <CreateContext.Provider value={value}>{children}</CreateContext.Provider>
+  );
 };
 
 export const useAppContext = () => {
