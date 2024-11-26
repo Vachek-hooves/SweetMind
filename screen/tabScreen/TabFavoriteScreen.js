@@ -13,7 +13,7 @@ import {useAppContext} from '../../store/context';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import {getMoodEmoji} from '../../data/moodEmodji';
-
+import {getBtnEmodji} from '../../data/btnEmodji';
 const FavoriteItem = ({item, onRemove}) => {
   return (
     <View style={styles.favoriteItem}>
@@ -21,7 +21,7 @@ const FavoriteItem = ({item, onRemove}) => {
         <Text style={styles.favoriteType}>
           {item.type === 'task' ? '📋 Task' : '💭 Quote'}
         </Text>
-        <Text style={styles.moodEmoji}>{getMoodEmoji(item.mood)}</Text>
+        <Text style={styles.moodEmoji}>{getBtnEmodji(item.mood)}</Text>
       </View>
 
       <Text style={styles.favoriteContent}>{item.content}</Text>
