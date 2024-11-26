@@ -11,6 +11,7 @@ import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import {useAppContext} from '../../store/context';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import LinearGradient from 'react-native-linear-gradient';
 import {getMoodEmoji} from '../../data/moodEmodji';
 
 const FavoriteItem = ({item, onRemove}) => {
@@ -60,7 +61,23 @@ const TabFavoriteScreen = () => {
 
   return (
     <MainTabLayout>
-      <CustomLinearGradient>
+      {/* <CustomLinearGradient> */}
+      <LinearGradient
+        colors={[
+          // 'transparent',
+          'rgba(255, 104, 168, 0.2)',
+          'rgba(255, 104, 168, 0.7)',
+          'rgba(255, 104, 168, 0.9)',
+          'rgba(255, 104, 168, 1)',
+          'rgba(255, 104, 168, 1)',
+          'rgba(255, 104, 168, 1)',
+          'rgba(255, 104, 168, 1)',
+          // '#FF68A8',
+        ]}
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 1}}
+        locations={[0.1, 0.2, 0.3, 0.5, 0.5, 0.7, 1]}
+        style={styles.linearGradient}>
         <View style={styles.container}>
           <Text style={styles.title}>My Favorites</Text>
 
@@ -78,7 +95,8 @@ const TabFavoriteScreen = () => {
             overScrollMode="never"
           />
         </View>
-      </CustomLinearGradient>
+        {/* </CustomLinearGradient> */}
+      </LinearGradient>
     </MainTabLayout>
   );
 };
@@ -163,6 +181,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     lineHeight: 24,
+  },
+  linearGradient: {
+    flex: 1,
+  },
+  scroll: {
+    flexGrow: 1,
   },
 });
 

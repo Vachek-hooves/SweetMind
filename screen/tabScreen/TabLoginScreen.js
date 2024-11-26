@@ -21,6 +21,7 @@ const TabLoginScreen = () => {
     profileImage: null,
   });
   const [isProfileSet, setIsProfileSet] = useState(false);
+  console.log('userData', userData);
 
   useEffect(() => {
     loadUserData();
@@ -81,37 +82,33 @@ const TabLoginScreen = () => {
     return (
       <MainTabLayout>
         <CustomLinearGradient>
-          <ScrollView
-            contentContainerStyle={{flexGrow: 1}}
-            showsVerticalScrollIndicator={false}>
-            <View style={styles.container}>
-              <View style={styles.profileContainer}>
-                <TouchableOpacity
-                  onPress={handleEdit}
-                  style={styles.imageContainer}>
-                  <Image
-                    source={{uri: userData.profileImage}}
-                    style={styles.profileImage}
-                  />
-                  <View style={styles.editIconOverlay}>
-                    <Icon name="edit" size={24} color="#fff" />
-                  </View>
-                </TouchableOpacity>
+          <View style={styles.container}>
+            <View style={styles.profileContainer}>
+              <TouchableOpacity
+                onPress={handleEdit}
+                style={styles.imageContainer}>
+                <Image
+                  source={{uri: userData.profileImage}}
+                  style={styles.profileImage}
+                />
+                <View style={styles.editIconOverlay}>
+                  <Icon name="edit" size={24} color="#fff" />
+                </View>
+              </TouchableOpacity>
 
-                <TouchableOpacity
-                  onPress={handleEdit}
-                  style={styles.nameContainer}>
-                  <Text style={styles.profileName}>{userData.nickname}</Text>
-                  <Icon
-                    name="edit"
-                    size={20}
-                    color="#fff"
-                    style={styles.nameEditIcon}
-                  />
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity
+                onPress={handleEdit}
+                style={styles.nameContainer}>
+                <Text style={styles.profileName}>{userData.nickname}</Text>
+                <Icon
+                  name="edit"
+                  size={20}
+                  color="#fff"
+                  style={styles.nameEditIcon}
+                />
+              </TouchableOpacity>
             </View>
-          </ScrollView>
+          </View>
         </CustomLinearGradient>
       </MainTabLayout>
     );

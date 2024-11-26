@@ -19,11 +19,11 @@ const CustomLinearGradient = ({children}) => {
       end={{x: 0, y: 1}}
       locations={[0.1, 0.2, 0.3, 0.5, 0.5, 0.7, 1]}
       style={styles.linearGradient}>
-      {/* <ScrollView
+      <ScrollView
         contentContainerStyle={styles.scroll}
-        showsVerticalScrollIndicator={false}> */}
+        showsVerticalScrollIndicator={false}>
         {children}
-      {/* </ScrollView> */}
+      </ScrollView>
     </LinearGradient>
   );
 };
