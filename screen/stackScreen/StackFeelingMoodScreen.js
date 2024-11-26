@@ -79,6 +79,7 @@ const StackFeelingMoodScreen = ({route}) => {
           <CurrentDate />
         </View>
         <ReturnIcon />
+        {/* <View style={{height: 110}} /> */}
       </CustomLinearGradient>
     </MainStackLayout>
   );

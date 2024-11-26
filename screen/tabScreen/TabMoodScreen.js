@@ -20,9 +20,9 @@ const TabMoodScreen = () => {
   return (
     <MainTabLayout>
       <CustomLinearGradient>
-        <ScrollView
+        {/* <ScrollView
           contentContainerStyle={{flexGrow: 1}}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}> */}
           <View style={styles.container}>
             {/* Profile Section */}
             <UserCard />
@@ -53,7 +53,8 @@ const TabMoodScreen = () => {
 
             <CurrentDate />
           </View>
-        </ScrollView>
+          <View style={{height: 110}} />
+        {/* </ScrollView> */}
       </CustomLinearGradient>
     </MainTabLayout>
   );
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     padding: 20,
+    
   },
   age: {
     fontSize: 14,

@@ -33,6 +33,7 @@ export default CustomLinearGradient;
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
+    marginTop:'10%'
   },
   scroll: {
     flexGrow: 1,
