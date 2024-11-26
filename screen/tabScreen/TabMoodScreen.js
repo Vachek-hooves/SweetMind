@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import {useNavigation} from '@react-navigation/native';
 import ActionCard from '../../components/ui/ActionCard';
 import SelectMoodBtn from '../../components/ui/SelectMoodBtn';
 import CurrentDate from '../../utils/CurrentDate';
+import UserCard from '../../components/UserData/UserCard';
 
 const moods = ['happy', 'calm', 'reflective'];
 
@@ -22,19 +23,9 @@ const TabMoodScreen = () => {
       <CustomLinearGradient>
         <View style={styles.container}>
           {/* Profile Section */}
-          <View style={styles.profileSection}>
-            <Image
-              style={styles.profileImage}
-              // source={require('../../assets/images/profile.png')}
-            />
-            <View style={styles.profileInfo}>
-              <Text style={styles.nickname}>Nickname</Text>
-              <Text style={styles.age}>21 year</Text>
-            </View>
-          </View>
+          <UserCard />
 
           {/* Daily Quote Card */}
-
           <ActionCard
             title="Happy Quote"
             content={'Every day brings new opportunities to shine.'}
@@ -57,7 +48,7 @@ const TabMoodScreen = () => {
           </View>
 
           {/* Date Display */}
-          
+
           <CurrentDate />
         </View>
       </CustomLinearGradient>
@@ -72,24 +63,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     padding: 20,
-  },
-  profileSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  profileImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-  },
-  profileInfo: {
-    marginLeft: 10,
-  },
-  nickname: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
   },
   age: {
     fontSize: 14,
