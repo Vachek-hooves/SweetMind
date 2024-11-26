@@ -56,12 +56,13 @@ const StackFeelingMoodScreen = ({route}) => {
 
           {/* Quote Card */}
           <ActionCard
-            title="Happy Quote"
-            content={currentTask.quote}
-            mainButtonText="New quote"
-            onMainButtonPress={getNewQuote}
-            isTaskCard={false}
-          />
+  title="Happy Quote"
+  content={currentTask.quote}
+  mainButtonText="New quote"
+  onMainButtonPress={getNewQuote}
+  isTaskCard={false}
+  mood={mood}
+/>
 
           {/* Task Card */}
           <ActionCard
@@ -70,6 +71,7 @@ const StackFeelingMoodScreen = ({route}) => {
   mainButtonText="Start task"
   onMainButtonPress={() => {}}
   isTaskCard={true}
+  mood={mood}
 />
 
           {/* Date Display */}

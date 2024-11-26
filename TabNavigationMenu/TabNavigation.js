@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   TabDoneTasks,
   TabFavoriteQuotes,
+  TabFavoriteScreen,
   TabLoginScreen,
   TabMoodScreen,
   TabStatisticScreen,
@@ -17,7 +18,8 @@ const TabNavigation = () => {
       <Tab.Screen name="TabMoodScreen" component={TabMoodScreen} />
       {/* <Tab.Screen name="TabStatisticScreen" component={TabStatisticScreen} /> */}
       <Tab.Screen name="TabDoneTasks" component={TabDoneTasks} />
-      <Tab.Screen name="TabFavoriteQuotes" component={TabFavoriteQuotes} />
+      {/* <Tab.Screen name="TabFavoriteQuotes" component={TabFavoriteQuotes} /> */}
+      <Tab.Screen name='TabFavoriteScreen' component={TabFavoriteScreen}/>
     </Tab.Navigator>
   );
 };

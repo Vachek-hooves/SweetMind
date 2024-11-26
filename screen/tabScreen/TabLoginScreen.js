@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  ScrollView,
 } from 'react-native';
 import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
-import { launchImageLibrary } from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -80,21 +81,37 @@ const TabLoginScreen = () => {
     return (
       <MainTabLayout>
         <CustomLinearGradient>
-          <View style={styles.container}>
-            <View style={styles.profileContainer}>
-              <TouchableOpacity onPress={handleEdit} style={styles.imageContainer}>
-                <Image source={{ uri: userData.profileImage }} style={styles.profileImage} />
-                <View style={styles.editIconOverlay}>
-                  <Icon name="edit" size={24} color="#fff" />
-                </View>
-              </TouchableOpacity>
-              
-              <TouchableOpacity onPress={handleEdit} style={styles.nameContainer}>
-                <Text style={styles.profileName}>{userData.nickname}</Text>
-                <Icon name="edit" size={20} color="#fff" style={styles.nameEditIcon} />
-              </TouchableOpacity>
+          <ScrollView
+            contentContainerStyle={{flexGrow: 1}}
+            showsVerticalScrollIndicator={false}>
+            <View style={styles.container}>
+              <View style={styles.profileContainer}>
+                <TouchableOpacity
+                  onPress={handleEdit}
+                  style={styles.imageContainer}>
+                  <Image
+                    source={{uri: userData.profileImage}}
+                    style={styles.profileImage}
+                  />
+                  <View style={styles.editIconOverlay}>
+                    <Icon name="edit" size={24} color="#fff" />
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={handleEdit}
+                  style={styles.nameContainer}>
+                  <Text style={styles.profileName}>{userData.nickname}</Text>
+                  <Icon
+                    name="edit"
+                    size={20}
+                    color="#fff"
+                    style={styles.nameEditIcon}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
+          </ScrollView>
         </CustomLinearGradient>
       </MainTabLayout>
     );
@@ -104,10 +121,15 @@ const TabLoginScreen = () => {
     <MainTabLayout>
       <CustomLinearGradient>
         <View style={styles.container}>
-          <TouchableOpacity onPress={handleImagePicker} style={styles.imageContainer}>
+          <TouchableOpacity
+            onPress={handleImagePicker}
+            style={styles.imageContainer}>
             {userData.profileImage ? (
               <>
-                <Image source={{ uri: userData.profileImage }} style={styles.profileImage} />
+                <Image
+                  source={{uri: userData.profileImage}}
+                  style={styles.profileImage}
+                />
                 <View style={styles.editIconOverlay}>
                   <Icon name="edit" size={24} color="#fff" />
                 </View>
@@ -125,7 +147,9 @@ const TabLoginScreen = () => {
             style={styles.input}
             placeholder="Your nickname"
             value={userData.nickname}
-            onChangeText={(text) => setUserData(prev => ({ ...prev, nickname: text }))}
+            onChangeText={text =>
+              setUserData(prev => ({...prev, nickname: text}))
+            }
             placeholderTextColor="#rgba(255,255,255,0.7)"
           />
 

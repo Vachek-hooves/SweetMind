@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
@@ -20,36 +20,40 @@ const TabMoodScreen = () => {
   return (
     <MainTabLayout>
       <CustomLinearGradient>
-        <View style={styles.container}>
-          {/* Profile Section */}
-          <UserCard />
+        <ScrollView
+          contentContainerStyle={{flexGrow: 1}}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.container}>
+            {/* Profile Section */}
+            <UserCard />
 
-          {/* Daily Quote Card */}
-          <ActionCard
-            title="Happy Quote"
-            content={'Every day brings new opportunities to shine.'}
-            mainButtonText="New quote"
-            onMainButtonPress={getNextQuote}
-          />
+            {/* Daily Quote Card */}
+            <ActionCard
+              title="Happy Quote"
+              content={'Every day brings new opportunities to shine.'}
+              mainButtonText="New quote"
+              onMainButtonPress={getNextQuote}
+            />
 
-          {/* Mood Selection Section */}
-          <View style={styles.moodSection}>
-            <Text style={styles.moodTitle}>
-              How are you{'\n'} feeling today?
-            </Text>
-            {moods.map(mood => (
-              <SelectMoodBtn
-                key={mood}
-                mood={mood}
-                onPress={handleMoodSelect}
-              />
-            ))}
+            {/* Mood Selection Section */}
+            <View style={styles.moodSection}>
+              <Text style={styles.moodTitle}>
+                How are you{'\n'} feeling today?
+              </Text>
+              {moods.map(mood => (
+                <SelectMoodBtn
+                  key={mood}
+                  mood={mood}
+                  onPress={handleMoodSelect}
+                />
+              ))}
+            </View>
+
+            {/* Date Display */}
+
+            <CurrentDate />
           </View>
-
-          {/* Date Display */}
-
-          <CurrentDate />
-        </View>
+        </ScrollView>
       </CustomLinearGradient>
     </MainTabLayout>
   );
