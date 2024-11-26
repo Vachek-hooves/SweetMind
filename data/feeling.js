@@ -169,5 +169,6 @@ export const feeling = [
         quote: 'The quieter you become, the clearer you hear your inner voice.'
       }
     ]
-  }
+  },
+  
 ];

@@ -3,9 +3,9 @@ import React from 'react';
 import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
 import {useNavigation} from '@react-navigation/native';
-import {CalmIcon} from '../../components/animatedIcons';
 import ActionCard from '../../components/ui/ActionCard';
 import SelectMoodBtn from '../../components/ui/SelectMoodBtn';
+import CurrentDate from '../../utils/CurrentDate';
 
 const moods = ['happy', 'calm', 'reflective'];
 
@@ -57,7 +57,8 @@ const TabMoodScreen = () => {
           </View>
 
           {/* Date Display */}
-          <Text style={styles.dateText}>12.03.2024</Text>
+          {/* <Text style={styles.dateText}>12.03.2024</Text> */}
+          <CurrentDate />
         </View>
       </CustomLinearGradient>
     </MainTabLayout>
@@ -113,17 +114,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  // moodButton: {
-  //   backgroundColor: '#fff',
-  //   borderRadius: 24,
-  //   padding: 15,
-  //   marginBottom: 10,
-  // },
-  // moodText: {
-  //   fontSize: 22,
-  //   color: '#FF1FA5',
-  //   fontWeight: '800',
-  // },
   dateText: {
     fontSize: 16,
     color: '#fff',

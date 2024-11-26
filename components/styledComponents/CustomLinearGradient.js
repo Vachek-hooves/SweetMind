@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const CustomLinearGradient = ({children}) => {
@@ -19,7 +19,11 @@ const CustomLinearGradient = ({children}) => {
       end={{x: 0, y: 1}}
       locations={[0.1, 0.2, 0.3, 0.5, 0.5, 0.7, 1]}
       style={styles.linearGradient}>
-      {children}
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        showsVerticalScrollIndicator={false}>
+        {children}
+      </ScrollView>
     </LinearGradient>
   );
 };
@@ -29,5 +33,8 @@ export default CustomLinearGradient;
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
+  },
+  scroll: {
+    flexGrow: 1,
   },
 });

@@ -62,9 +62,9 @@ const ActionCard = ({title, content, mainButtonText, onMainButtonPress, isTaskCa
         >
           <Text style={styles.mainButtonText}>{getButtonText()}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.iconButton}>
+        {/* <TouchableOpacity style={styles.iconButton}>
           <Icon name="smile-o" size={24} color="#FF1FA5" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity style={styles.iconButton}>
           <Icon name="thumbs-up" size={24} color="#FF1FA5" />
         </TouchableOpacity>
