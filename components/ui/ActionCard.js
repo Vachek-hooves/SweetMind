@@ -1,7 +1,10 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {useAppContext} from '../../store/context';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {useTimer, formatTime} from './actionCardComponents/Timer';
+import ActionButton from './actionCardComponents/ActionButton';
+import FavoriteButton from './actionCardComponents/FavoriteButton';
 
 const ActionCard = ({
   title,
@@ -12,26 +15,24 @@ const ActionCard = ({
   mood,
 }) => {
   const {addToFavorites, favorites} = useAppContext();
-  const [isCountingDown, setIsCountingDown] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
+  const [taskTimer, setTaskTimer] = useState({
+    isActive: false,
+    timeLeft: 600,
+    taskContent: null, // Store the task content when timer starts
+  });
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    let timer;
-    if (isCountingDown && timeLeft > 0) {
-      timer = setInterval(() => {
-        setTimeLeft(prev => prev - 1);
-      }, 1000);
-    } else if (timeLeft === 0) {
-      setIsCountingDown(false);
-      setTimeLeft(600); // Reset timer
-    }
-
-    return () => clearInterval(timer);
-  }, [isCountingDown, timeLeft]);
+  useTimer(taskTimer, setTaskTimer);
 
   useEffect(() => {
-    // Check if this item is already in favorites
+    const isAlreadyFavorite = favorites.some(
+      fav =>
+        fav.content === content && fav.type === (isTaskCard ? 'task' : 'quote'),
+    );
+    setIsFavorite(isAlreadyFavorite);
+  }, [favorites, content, isTaskCard]);
+
+  useEffect(() => {
     const isAlreadyFavorite = favorites.some(
       fav =>
         fav.content === content && fav.type === (isTaskCard ? 'task' : 'quote'),
@@ -41,13 +42,26 @@ const ActionCard = ({
 
   const handleMainButtonPress = () => {
     if (isTaskCard) {
-      if (isCountingDown) {
-        // Stop countdown and reset
-        setIsCountingDown(false);
-        setTimeLeft(600);
+      if (taskTimer.isActive && taskTimer.taskContent !== content) {
+        Alert.alert(
+          'Task in Progress',
+          'Please finish the current task first!',
+        );
+        return;
+      }
+
+      if (!taskTimer.isActive) {
+        setTaskTimer({
+          isActive: true,
+          timeLeft: 600,
+          taskContent: content,
+        });
       } else {
-        // Start countdown
-        setIsCountingDown(true);
+        setTaskTimer({
+          isActive: false,
+          timeLeft: 600,
+          taskContent: null,
+        });
       }
     } else {
       onMainButtonPress();
@@ -61,7 +75,6 @@ const ActionCard = ({
         content,
         mood,
       };
-
       const success = await addToFavorites(item);
       if (success) {
         setIsFavorite(true);
@@ -69,15 +82,14 @@ const ActionCard = ({
     }
   };
 
-  const formatTime = seconds => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
-  };
-
   const getButtonText = () => {
     if (!isTaskCard) return mainButtonText;
-    if (isCountingDown) return formatTime(timeLeft);
+    if (taskTimer.isActive && taskTimer.taskContent === content) {
+      return formatTime(taskTimer.timeLeft);
+    }
+    if (taskTimer.isActive && taskTimer.taskContent !== content) {
+      return 'Task in progress';
+    }
     return mainButtonText;
   };
 
@@ -86,24 +98,17 @@ const ActionCard = ({
       <Text style={styles.cardTitle}>{title}</Text>
       <Text style={styles.contentText}>{content}</Text>
       <View style={styles.actionButtons}>
-        <TouchableOpacity
-          style={[
-            styles.mainButton,
-            isCountingDown && styles.countdownButton,
-            timeLeft === 0 && styles.completedButton, // Optional: different style when completed
-          ]}
-          onPress={handleMainButtonPress}>
-          <Text style={styles.mainButtonText}>{getButtonText()}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.iconButton, isFavorite && styles.iconButtonActive]}
-          onPress={handleFavoritePress}>
-          <Icon
-            name="thumbs-up"
-            size={24}
-            color={isFavorite ? '#fff' : '#FF1FA5'}
-          />
-        </TouchableOpacity>
+        <ActionButton
+          text={getButtonText()}
+          onPress={handleMainButtonPress}
+          disabled={
+            isTaskCard &&
+            taskTimer.isActive &&
+            taskTimer.taskContent !== content
+          }
+          isCountdown={taskTimer.isActive && taskTimer.taskContent === content}
+        />
+        <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} />
       </View>
     </View>
   );
@@ -170,5 +175,8 @@ const styles = StyleSheet.create({
   },
   completedButton: {
     backgroundColor: '#FF1FA5', // Return to original color when completed
+  },
+  disabledButton: {
+    backgroundColor: '#ccc',
   },
 });

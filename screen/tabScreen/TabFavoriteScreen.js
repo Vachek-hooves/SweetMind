@@ -96,6 +96,7 @@ const TabFavoriteScreen = () => {
           />
         </View>
         {/* </CustomLinearGradient> */}
+        <View style={{height:110}}></View>
       </LinearGradient>
     </MainTabLayout>
   );
@@ -105,13 +106,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    marginTop: 50,
+    marginTop: 40,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#fff',
-    marginVertical: 20,
+    marginVertical: 10,
     textAlign: 'center',
   },
   listContainer: {
