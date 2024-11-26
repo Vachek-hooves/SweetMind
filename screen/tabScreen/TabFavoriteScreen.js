@@ -66,9 +66,9 @@ const FavoriteSection = ({ items, type, onRemove }) => {
                     <Text style={styles.doneButtonText}>Done</Text>
                   </TouchableOpacity>
                 )}
-                <TouchableOpacity style={styles.iconButton}>
+                {/* <TouchableOpacity style={styles.iconButton}>
                   <Icon name="share" size={20} color="#FF1FA5" />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 {type === 'quote' && (
                   <TouchableOpacity 
                     style={styles.iconButton}
