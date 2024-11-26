@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {StyleSheet, View, TouchableOpacity, AppState} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
@@ -8,10 +8,43 @@ import {
   TabLoginScreen,
   TabMoodScreen,
 } from '../screen/tabScreen';
+import {pauseBackgroundMusic, playBackgroundMusic, setupPlayer, toggleBackgroundMusic} from '../components/audio/setupPlayer';
+
 
 const Tab = createBottomTabNavigator();
 
 const CustomTabBar = ({state, descriptors, navigation}) => {
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Setup audio player when component mounts
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (nextAppState === 'active' && isPlaying) {
+        playBackgroundMusic();
+      } else if (nextAppState === 'inactive' || nextAppState === 'background') {
+        pauseBackgroundMusic();
+      }
+    });
+    const initMusic = async () => {
+      await setupPlayer();
+      await playBackgroundMusic();
+      setIsPlaying(true);
+    };
+
+    initMusic();
+
+    return () => {
+      subscription.remove();
+      pauseBackgroundMusic();
+    };
+  }, []);
+
+  const handleMusicToggle = () => {
+    const updatedState=toggleBackgroundMusic()
+    setIsPlaying(updatedState);
+    // Add your music play/pause logic here
+  };
+
   return (
     <View style={styles.tabBarContainer}>
       <View style={styles.tabBar}>
@@ -20,6 +53,12 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
           const isFocused = state.index === index;
 
           const onPress = () => {
+            // Handle music control separately
+            if (route.name === 'Sound') {
+              handleMusicToggle();
+              return;
+            }
+
             const event = navigation.emit({
               type: 'tabPress',
               target: route.key,
@@ -39,11 +78,12 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
             case 'TabMoodScreen':
               iconName = 'home';
               break;
-            case 'TabDoneTasks':
-              iconName = 'check-circle';
-              break;
             case 'TabFavoriteScreen':
               iconName = 'thumb-up';
+              break;
+            case 'Sound':
+              // Use different icon based on playing state
+              iconName = isPlaying ? 'music-note' : 'music-off';
               break;
             default:
               iconName = 'circle';
@@ -56,8 +96,8 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
               style={[styles.tabItem, isFocused && styles.tabItemFocused]}>
               <Icon
                 name={iconName}
-                size={42}
-                color={isFocused ? '#FF1FA5' : '#666'}
+                size={28}
+                color={isFocused || (route.name === 'Sound' && isPlaying) ? '#FF1FA5' : '#666'}
               />
             </TouchableOpacity>
           );
@@ -77,9 +117,21 @@ const TabNavigation = () => {
       <Tab.Screen name="TabLoginScreen" component={TabLoginScreen} />
       <Tab.Screen name="TabMoodScreen" component={TabMoodScreen} />
       <Tab.Screen name="TabFavoriteScreen" component={TabFavoriteScreen} />
+      <Tab.Screen 
+        name="Sound" 
+        component={EmptyComponent}
+        listeners={{
+          tabPress: (e) => {
+            // Prevent navigation
+            e.preventDefault();
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 };
+
+const EmptyComponent = () => null;
 
 export default TabNavigation;
 

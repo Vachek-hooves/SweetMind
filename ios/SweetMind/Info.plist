@@ -32,6 +32,8 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App access to photo library to update your profile image</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
