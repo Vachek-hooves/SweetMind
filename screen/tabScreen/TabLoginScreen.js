@@ -14,6 +14,7 @@ import CustomLinearGradient from '../../components/styledComponents/CustomLinear
 import {launchImageLibrary} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import LottieView from 'lottie-react-native';
 
 const TabLoginScreen = () => {
   const [userData, setUserData] = useState({
@@ -21,7 +22,7 @@ const TabLoginScreen = () => {
     profileImage: null,
   });
   const [isProfileSet, setIsProfileSet] = useState(false);
-  console.log('userData', userData);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
     loadUserData();
@@ -66,8 +67,12 @@ const TabLoginScreen = () => {
 
     try {
       await AsyncStorage.setItem('userData', JSON.stringify(userData));
-      setIsProfileSet(true);
-      Alert.alert('Success', 'Profile saved successfully!');
+      setShowAnimation(true);
+      
+      setTimeout(() => {
+        setShowAnimation(false);
+        setIsProfileSet(true);
+      }, 3000);
     } catch (error) {
       console.error('Error saving user data:', error);
       Alert.alert('Error', 'Failed to save profile');
@@ -77,6 +82,23 @@ const TabLoginScreen = () => {
   const handleEdit = () => {
     setIsProfileSet(false);
   };
+
+  if (showAnimation) {
+    return (
+      <MainTabLayout>
+        <CustomLinearGradient>
+          <View style={styles.animationContainer}>
+            <LottieView
+              source={require('../../assets/animations/flyYogaMood.json')}
+              autoPlay
+              loop={false}
+              style={styles.lottieAnimation}
+            />
+          </View>
+        </CustomLinearGradient>
+      </MainTabLayout>
+    );
+  }
 
   if (isProfileSet) {
     return (
@@ -253,5 +275,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 2,
     borderColor: '#fff',
+  },
+  animationContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  lottieAnimation: {
+    width: '100%',
+    height: '100%',
   },
 });
