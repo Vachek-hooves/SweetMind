@@ -5,7 +5,7 @@ import {
   View,
   FlatList,
   TouchableOpacity,
-  SafeAreaView,
+
 } from 'react-native';
 import MainTabLayout from '../../components/Layout/MainTabLayout';
 import CustomLinearGradient from '../../components/styledComponents/CustomLinearGradient';
