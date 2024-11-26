@@ -57,7 +57,7 @@ const TabMoodScreen = () => {
           </View>
 
           {/* Date Display */}
-          {/* <Text style={styles.dateText}>12.03.2024</Text> */}
+          
           <CurrentDate />
         </View>
       </CustomLinearGradient>
