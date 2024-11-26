@@ -1,12 +1,22 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {getUserData} from '../../utils/userData';
 import {useState, useEffect} from 'react';
-
+import {useNavigation} from '@react-navigation/native';
 const UserCard = () => {
   const [userData, setUserData] = useState(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    getUserData().then(data => setUserData(data));
+    const loadUserData = async () => {
+      const data = await getUserData();
+      setUserData(data);
+    };
+    
+    loadUserData();
+    // Add focus listener to refresh data when screen is focused
+    const unsubscribe = navigation.addListener('focus', loadUserData);
+    
+    return () => unsubscribe();
   }, []);
   
   return (
