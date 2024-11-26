@@ -6,6 +6,7 @@ import MainStackLayout from '../../components/Layout/MainStackLayout';
 import ActionCard from '../../components/ui/ActionCard';
 import {getMoodEmoji} from '../../data/moodEmodji';
 import ReturnIcon from '../../components/iconsComponent/ReturnIcon';
+import CurrentDate from '../../utils/CurrentDate';
 
 const StackFeelingMoodScreen = ({route}) => {
   const {mood} = route.params;
@@ -56,28 +57,26 @@ const StackFeelingMoodScreen = ({route}) => {
 
           {/* Quote Card */}
           <ActionCard
-  title="Happy Quote"
-  content={currentTask.quote}
-  mainButtonText="New quote"
-  onMainButtonPress={getNewQuote}
-  isTaskCard={false}
-  mood={mood}
-/>
+            title="Happy Quote"
+            content={currentTask.quote}
+            mainButtonText="New quote"
+            onMainButtonPress={getNewQuote}
+            isTaskCard={false}
+            mood={mood}
+          />
 
           {/* Task Card */}
           <ActionCard
-  title="Your task today:"
-  content={currentTask.task}
-  mainButtonText="Start task"
-  onMainButtonPress={() => {}}
-  isTaskCard={true}
-  mood={mood}
-/>
+            title="Your task today:"
+            content={currentTask.task}
+            mainButtonText="Start task"
+            onMainButtonPress={() => {}}
+            isTaskCard={true}
+            mood={mood}
+          />
 
           {/* Date Display */}
-          <View style={styles.dateContainer}>
-            <Text style={styles.dateText}>12.03.2024</Text>
-          </View>
+          <CurrentDate />
         </View>
         <ReturnIcon />
       </CustomLinearGradient>

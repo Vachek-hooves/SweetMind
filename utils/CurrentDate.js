@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   dateText: {
-    fontSize: 16,
-    color: '#000',
+    fontSize: 18,
+    color: '#FF1FA5',
     textAlign: 'center',
   },
 });
