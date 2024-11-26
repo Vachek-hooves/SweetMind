@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   },
 
   lottie: {
+    bottom: '-10%',
     width: '100%',
     height: 400,
   },
