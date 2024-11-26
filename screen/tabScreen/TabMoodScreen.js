@@ -20,41 +20,37 @@ const TabMoodScreen = () => {
   return (
     <MainTabLayout>
       <CustomLinearGradient>
-        {/* <ScrollView
-          contentContainerStyle={{flexGrow: 1}}
-          showsVerticalScrollIndicator={false}> */}
-          <View style={styles.container}>
-            {/* Profile Section */}
-            <UserCard />
+        <View style={styles.container}>
+          {/* Profile Section */}
+          <UserCard />
 
-            {/* Daily Quote Card */}
-            <ActionCard
-              title="Happy Quote"
-              content={'Every day brings new opportunities to shine.'}
-              mainButtonText="New quote"
-              onMainButtonPress={getNextQuote}
-            />
+          {/* Daily Quote Card */}
+          <ActionCard
+            title="Happy Quote"
+            content={'Every day brings new opportunities to shine.'}
+            mainButtonText="New quote"
+            onMainButtonPress={getNextQuote}
+          />
 
-            {/* Mood Selection Section */}
-            <View style={styles.moodSection}>
-              <Text style={styles.moodTitle}>
-                How are you{'\n'} feeling today?
-              </Text>
-              {moods.map(mood => (
-                <SelectMoodBtn
-                  key={mood}
-                  mood={mood}
-                  onPress={handleMoodSelect}
-                />
-              ))}
-            </View>
-
-            {/* Date Display */}
-
-            <CurrentDate />
+          {/* Mood Selection Section */}
+          <View style={styles.moodSection}>
+            <Text style={styles.moodTitle}>
+              How are you{'\n'} feeling today?
+            </Text>
+            {moods.map(mood => (
+              <SelectMoodBtn
+                key={mood}
+                mood={mood}
+                onPress={handleMoodSelect}
+              />
+            ))}
           </View>
-          <View style={{height: 110}} />
-        {/* </ScrollView> */}
+
+          {/* Date Display */}
+
+          <CurrentDate />
+        </View>
+        <View style={{height: 110}} />
       </CustomLinearGradient>
     </MainTabLayout>
   );
@@ -67,7 +63,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     padding: 20,
-    
   },
   age: {
     fontSize: 14,

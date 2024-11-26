@@ -134,10 +134,11 @@ const styles = StyleSheet.create({
     paddingTop: 40,
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 20,
+    marginVertical: 20,
+    textAlign: 'center',
   },
   listContainer: {
     flexGrow: 1,
