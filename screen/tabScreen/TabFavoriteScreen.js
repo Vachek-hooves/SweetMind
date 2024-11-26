@@ -17,23 +17,23 @@ import {getBtnEmodji} from '../../data/btnEmodji';
 const FavoriteItem = ({item, onRemove}) => {
   return (
     <View style={styles.favoriteItem}>
-      <View style={styles.favoriteHeader}>
-        <Text style={styles.favoriteType}>
-          {item.type === 'task' ? '📋 Task' : '💭 Quote'}
-        </Text>
-        <Text style={styles.moodEmoji}>{getBtnEmodji(item.mood)}</Text>
-      </View>
-
+      <Text style={styles.favoriteType}>
+        {item.type === 'task' ? 'Saved Tasks' : 'Saved Quotes'}
+      </Text>
       <Text style={styles.favoriteContent}>{item.content}</Text>
-
-      <View style={styles.favoriteFooter}>
-        <Text style={styles.favoriteDate}>
-          {new Date(item.timestamp).toLocaleDateString()}
-        </Text>
-        <TouchableOpacity
-          style={styles.removeButton}
+      <View style={styles.buttonContainer}>
+        {item.type === 'task' && (
+          <TouchableOpacity style={styles.doneButton}>
+            <Text style={styles.doneButtonText}>Done</Text>
+          </TouchableOpacity>
+        )}
+        <TouchableOpacity style={styles.iconButton}>
+          <Icon name="share" size={20} color="#FF1FA5" />
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.iconButton}
           onPress={() => onRemove(item.id)}>
-          <Icon name="trash" size={20} color="#FF1FA5" />
+          <Icon name="thumbs-up" size={20} color="#FF1FA5" />
         </TouchableOpacity>
       </View>
     </View>
@@ -109,11 +109,10 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
-    marginVertical: 10,
-    textAlign: 'center',
+    marginBottom: 20,
   },
   listContainer: {
     flexGrow: 1,
@@ -126,51 +125,59 @@ const styles = StyleSheet.create({
   },
   favoriteItem: {
     backgroundColor: '#fff',
-    borderRadius: 16,
-    padding: 15,
+    borderRadius: 25,
+    padding: 20,
     marginBottom: 15,
+    marginHorizontal: 20,
     elevation: 3,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.1,
     shadowRadius: 3.84,
-  },
-  favoriteHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
   },
   favoriteType: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#FF1FA5',
-  },
-  moodEmoji: {
-    fontSize: 20,
+    marginBottom: 10,
   },
   favoriteContent: {
-    fontSize: 16,
-    color: '#333',
-    marginBottom: 10,
-    lineHeight: 22,
+    fontSize: 18,
+    color: '#000',
+    marginBottom: 20,
+    textAlign: 'center',
+    lineHeight: 24,
   },
-  favoriteFooter: {
+  buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 5,
+    gap: 10,
   },
-  favoriteDate: {
-    color: '#666',
-    fontSize: 14,
-  },
-  removeButton: {
-    padding: 8,
+  doneButton: {
+    backgroundColor: '#FF1FA5',
+    paddingVertical: 10,
+    paddingHorizontal: 30,
     borderRadius: 20,
+    flex: 1,
+  },
+  doneButtonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  iconButton: {
     backgroundColor: 'rgba(255, 31, 165, 0.1)',
+    padding: 10,
+    borderRadius: 20,
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   emptyState: {
     flex: 1,

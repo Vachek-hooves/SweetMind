@@ -76,7 +76,7 @@ const TabNavigation = () => {
       tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen name="TabLoginScreen" component={TabLoginScreen} />
       <Tab.Screen name="TabMoodScreen" component={TabMoodScreen} />
-      <Tab.Screen name="TabDoneTasks" component={TabDoneTasks} />
+      {/* <Tab.Screen name="TabDoneTasks" component={TabDoneTasks} /> */}
       <Tab.Screen name="TabFavoriteScreen" component={TabFavoriteScreen} />
     </Tab.Navigator>
   );
