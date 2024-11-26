@@ -4,8 +4,8 @@ import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 const WelcomeScreen = ({navigation}) => {
-  const titleAnim = useRef(new Animated.Value(-100)).current;
-  const subtitleAnim = useRef(new Animated.Value(-100)).current;
+  const titleAnim = useRef(new Animated.Value(-200)).current;
+  const subtitleAnim = useRef(new Animated.Value(-200)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
