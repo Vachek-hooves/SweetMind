@@ -11,7 +11,7 @@ function App() {
     <AppContext>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          {/* <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} /> */}
+          <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
           <Stack.Screen name="TabNavigator" component={TabNavigation} />
           <Stack.Screen
             name="StackFeelingMoodScreen"
