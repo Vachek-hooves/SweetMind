@@ -101,14 +101,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 42,
+    fontSize: 52,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 26,
     color: '#fff',
     textAlign: 'center',
     lineHeight: 24,
