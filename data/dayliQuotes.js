@@ -1,7 +1,7 @@
 export const dayliQuotes = [
-  {id: 1, quote: 'Every day brings new opportunities to shine.'},
-  {id: 2, quote: 'The only way to do great work is to love what you do.'},
-  {id: 3, quote: 'Believe you can and you\'re halfway there.'},
+    {id: 1, quote: 'Believe you can and you\'re halfway there.'},
+    {id: 2, quote: 'The only way to do great work is to love what you do.'},
+    {id: 3, quote: 'Every day brings new opportunities to shine.'},
   {id: 4, quote: 'Your positive action combined with positive thinking results in success.'},
   {id: 5, quote: 'The future belongs to those who believe in the beauty of their dreams.'},
   {id: 6, quote: 'Success is not final, failure is not fatal: it is the courage to continue that counts.'},
