@@ -43,7 +43,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
               iconName = 'check-circle';
               break;
             case 'TabFavoriteScreen':
-              iconName = 'favorite';
+              iconName = 'thumb-up';
               break;
             default:
               iconName = 'circle';
@@ -76,7 +76,6 @@ const TabNavigation = () => {
       tabBar={props => <CustomTabBar {...props} />}>
       <Tab.Screen name="TabLoginScreen" component={TabLoginScreen} />
       <Tab.Screen name="TabMoodScreen" component={TabMoodScreen} />
-      {/* <Tab.Screen name="TabDoneTasks" component={TabDoneTasks} /> */}
       <Tab.Screen name="TabFavoriteScreen" component={TabFavoriteScreen} />
     </Tab.Navigator>
   );
