@@ -90,6 +90,7 @@ const ActionCard = ({
     if (taskTimer.isActive && taskTimer.taskContent !== content) {
       return 'Task in progress';
     }
+    
     return mainButtonText;
   };
 
