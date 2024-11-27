@@ -73,7 +73,7 @@ const FavoriteSection = ({ items, type, onRemove }) => {
                   <TouchableOpacity 
                     style={styles.iconButton}
                     onPress={() => onRemove(item.id)}>
-                    <Icon name="thumbs-up" size={20} color="#FF1FA5" />
+                    <Icon name="trash" size={20} color="#FF1FA5" />
                   </TouchableOpacity>
                 )}
               </View>

@@ -13,6 +13,7 @@ const ActionCard = ({
   onMainButtonPress,
   isTaskCard,
   mood,
+  hiddenMainButton = false,
 }) => {
   const {addToFavorites, favorites} = useAppContext();
   const [taskTimer, setTaskTimer] = useState({
@@ -99,16 +100,18 @@ const ActionCard = ({
       <Text style={styles.cardTitle}>{title}</Text>
       <Text style={styles.contentText}>{content}</Text>
       <View style={styles.actionButtons}>
-        <ActionButton
-          text={getButtonText()}
-          onPress={handleMainButtonPress}
-          disabled={
-            isTaskCard &&
-            taskTimer.isActive &&
-            taskTimer.taskContent !== content
-          }
-          isCountdown={taskTimer.isActive && taskTimer.taskContent === content}
-        />
+        {!hiddenMainButton && (
+          <ActionButton
+            text={getButtonText()}
+            onPress={handleMainButtonPress}
+            disabled={
+              isTaskCard &&
+              taskTimer.isActive &&
+              taskTimer.taskContent !== content
+            }
+            isCountdown={taskTimer.isActive && taskTimer.taskContent === content}
+          />
+        )}
         <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} />
       </View>
     </View>

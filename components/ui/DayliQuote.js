@@ -36,17 +36,11 @@ const DayliQuote = () => {
     }
   };
 
-  const getNextQuote = () => {
-    // This function won't change the quote until next day
-    // You can show a message to user that quote changes daily
-  };
-
   return (
     <ActionCard
       title="Daily Quote"
       content={dailyQuote?.quote || 'Loading...'}
-      mainButtonText="New quote"
-      onMainButtonPress={getNextQuote}
+      hiddenMainButton={true}
     />
   );
 };
