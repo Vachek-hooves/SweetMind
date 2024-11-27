@@ -9,7 +9,7 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.yoursweet.mind
       vars:
-        APP_STORE_APPLE_ID:
+        APP_STORE_APPLE_ID: 6738731358
         BUNDLE_ID: 'com.yoursweet.mind'
         XCODE_WORKSPACE: 'SweetMind.xcworkspace'
         CODE_SCHEME: 'SweetMind'
