@@ -38,8 +38,8 @@ const TabMoodScreen = () => {
           </View>
 
           <CurrentDate />
+      <View style={{height: 110 }} />
         </View>
-        <View style={{height: 110}} />
       </CustomLinearGradient>
     </MainTabLayout>
   );
@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     padding: 20,
+    // marginTop: 30,
+   
   },
   age: {
     fontSize: 14,

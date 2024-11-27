@@ -176,6 +176,7 @@ const TabLoginScreen = () => {
             <Text style={styles.saveButtonText}>Save</Text>
           </TouchableOpacity>
         </View>
+        <View style={{height: 100}} />
       </CustomLinearGradient>
     </MainTabLayout>
   );
