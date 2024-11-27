@@ -5,7 +5,7 @@ workflows:
     integrations:
       app_store_connect: YourSweetMindCodemagicKey
     environment:
-      ios_signin:
+      ios_signing:
         distribution_type: app_store
         bundle_identifier: com.yoursweet.mind
       vars:
