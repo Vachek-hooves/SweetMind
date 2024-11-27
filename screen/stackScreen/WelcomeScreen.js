@@ -82,7 +82,7 @@ const WelcomeScreen = ({navigation}) => {
               opacity: opacityAnim,
             }
           ]}>
-          Sweet Mind
+          Your Sweet Mind
         </Animated.Text>
 
         <Animated.Text 
@@ -93,7 +93,7 @@ const WelcomeScreen = ({navigation}) => {
               opacity: opacityAnim,
             }
           ]}>
-          Welcome to Sweet Mind, your daily companion for positivity and mindfulness.
+          Welcome to Your Sweet Mind, your daily companion for positivity and mindfulness.
         </Animated.Text>
 
         <Animated.View

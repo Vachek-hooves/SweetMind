@@ -7,12 +7,12 @@ const CustomLinearGradient = ({children}) => {
       colors={[
         // 'transparent',
         'rgba(255, 104, 168, 0.2)',
+        'rgba(255, 104, 168, 0.5)',
+        'rgba(255, 104, 168, 0.6)',
         'rgba(255, 104, 168, 0.7)',
+        'rgba(255, 104, 168, 0.8)',
+        'rgba(255, 104, 168, 0.8)',
         'rgba(255, 104, 168, 0.9)',
-        'rgba(255, 104, 168, 1)',
-        'rgba(255, 104, 168, 1)',
-        'rgba(255, 104, 168, 1)',
-        'rgba(255, 104, 168, 1)',
         // '#FF68A8',
       ]}
       start={{x: 0, y: 0}}
@@ -33,7 +33,7 @@ export default CustomLinearGradient;
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    marginTop:'10%'
+    // marginTop:'1%'
   },
   scroll: {
     flexGrow: 1,
