@@ -2,7 +2,7 @@ workflows:
   your-sweet-mind-workflow:
     name: Your Sweet Mind
     max_build_duration: 120
-    integration:
+    integrations:
       app_store_connect: YourSweetMindCodemagicKey
     environment:
       ios_signin:
