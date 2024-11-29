@@ -6,13 +6,16 @@ import SelectMoodBtn from '../../components/ui/SelectMoodBtn';
 import CurrentDate from '../../utils/CurrentDate';
 import UserCard from '../../components/UserData/UserCard';
 import DayliQuote from '../../components/ui/DayliQuote';
+import { useAppContext } from '../../store/context';
 
 const moods = ['happy', 'calm', 'reflective'];
 
 const TabMoodScreen = () => {
   const navigation = useNavigation();
+  const { trackMoodSelection } = useAppContext();
 
-  const handleMoodSelect = mood => {
+  const handleMoodSelect = async (mood) => {
+    await trackMoodSelection(mood);
     navigation.navigate('StackFeelingMoodScreen', {mood});
   };
 

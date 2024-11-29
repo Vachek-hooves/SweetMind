@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -14,8 +14,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import {getMoodEmoji} from '../../data/moodEmodji';
 import {getBtnEmodji} from '../../data/btnEmodji';
+import MoodStatistics from '../../components/FavoriteScreenComponents/MoodStatistics';
 
-const PaginationDots = ({ currentIndex, total }) => {
+const PaginationDots = ({currentIndex, total}) => {
   return (
     <View style={styles.paginationContainer}>
       {[...Array(total)].map((_, index) => (
@@ -31,11 +32,11 @@ const PaginationDots = ({ currentIndex, total }) => {
   );
 };
 
-const FavoriteSection = ({ items, type, onRemove }) => {
+const FavoriteSection = ({items, type, onRemove}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentItem = items[currentIndex];
 
-  const handleScroll = (event) => {
+  const handleScroll = event => {
     const contentOffset = event.nativeEvent.contentOffset.x;
     const index = Math.round(contentOffset / Dimensions.get('window').width);
     setCurrentIndex(index);
@@ -51,8 +52,7 @@ const FavoriteSection = ({ items, type, onRemove }) => {
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
         scrollEventThrottle={16}
-        contentContainerStyle={styles.scrollViewContent}
-      >
+        contentContainerStyle={styles.scrollViewContent}>
         {items.map((item, index) => (
           <View key={index} style={styles.cardContainer}>
             <View style={styles.favoriteItem}>
@@ -70,7 +70,7 @@ const FavoriteSection = ({ items, type, onRemove }) => {
                   <Icon name="share" size={20} color="#FF1FA5" />
                 </TouchableOpacity> */}
                 {type === 'quote' && (
-                  <TouchableOpacity 
+                  <TouchableOpacity
                     style={styles.iconButton}
                     onPress={() => onRemove(item.id)}>
                     <Icon name="trash" size={20} color="#FF1FA5" />
@@ -87,8 +87,9 @@ const FavoriteSection = ({ items, type, onRemove }) => {
 };
 
 const TabFavoriteScreen = () => {
-  const {favorites, removeFromFavorites} = useAppContext();
+  const {favorites, removeFromFavorites, moodStats} = useAppContext();
 
+  console.log(moodStats);
   const tasks = favorites.filter(item => item.type === 'task');
   const quotes = favorites.filter(item => item.type === 'quote');
 
@@ -108,20 +109,26 @@ const TabFavoriteScreen = () => {
         start={{x: 0, y: 0}}
         end={{x: 0, y: 1}}
         style={styles.linearGradient}>
-        <View style={styles.container}>
-          <Text style={styles.title}>Saved</Text>
-          
-          <FavoriteSection 
-            items={quotes} 
-            type="quote" 
-            onRemove={handleRemove} 
-          />
-          <FavoriteSection 
-            items={tasks} 
-            type="task" 
-            onRemove={handleRemove} 
-          />
-        </View>
+        <ScrollView
+          contentContainerStyle={{marginTop: 50}}
+          style={{marginTop:50}}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.container}>
+            <Text style={styles.title}>Saved</Text>
+
+            <FavoriteSection
+              items={quotes}
+              type="quote"
+              onRemove={handleRemove}
+            />
+            <FavoriteSection
+              items={tasks}
+              type="task"
+              onRemove={handleRemove}
+            />
+          </View>
+          <MoodStatistics />
+        </ScrollView>
         <View style={{height: 110}} />
       </LinearGradient>
     </MainTabLayout>
@@ -143,7 +150,7 @@ const styles = StyleSheet.create({
   listContainer: {
     flexGrow: 1,
     paddingBottom: 20,
-    marginTop:50
+    marginTop: 50,
   },
   emptyListContainer: {
     flex: 1,
