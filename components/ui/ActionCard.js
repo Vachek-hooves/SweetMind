@@ -7,6 +7,7 @@ import ActionButton from './actionCardComponents/ActionButton';
 import FavoriteButton from './actionCardComponents/FavoriteButton';
 
 const ActionCard = ({
+  customStyle,
   title,
   content,
   mainButtonText,
@@ -95,10 +96,13 @@ const ActionCard = ({
     return mainButtonText;
   };
 
+  const isQuoteCard = title === 'Daily Quote';
+  
+
   return (
-    <View style={styles.card}>
-      <Text style={styles.cardTitle}>{title}</Text>
-      <Text style={styles.contentText}>{content}</Text>
+    <View style={[ isQuoteCard ? styles.dayliQuoteCard : styles.card]}>
+      <Text style={isQuoteCard ? styles.dayliQuoteTitle : styles.cardTitle}>{title}</Text>
+      <Text style={isQuoteCard ? styles.dayliQuoteContent : styles.contentText}>{content}</Text>
       <View style={styles.actionButtons}>
         {!hiddenMainButton && (
           <ActionButton
@@ -112,7 +116,11 @@ const ActionCard = ({
             isCountdown={taskTimer.isActive && taskTimer.taskContent === content}
           />
         )}
-        <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} />
+        {isQuoteCard? <View style={{padding:10,backgroundColor:'#ffffff'+90,borderRadius:20}}>
+          <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} isQuoteCard={isQuoteCard} />
+        </View>:
+        <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} isQuoteCard={isQuoteCard} />
+        }
       </View>
     </View>
   );
@@ -121,6 +129,14 @@ const ActionCard = ({
 export default ActionCard;
 
 const styles = StyleSheet.create({
+  dayliQuoteCard: {
+    backgroundColor: 'transparent',
+    borderRadius: 24,
+    padding: 20,
+    marginBottom: 30,
+    borderWidth: 2,
+    borderColor: '#fff',
+  },
   card: {
     backgroundColor: '#fff',
     borderRadius: 24,
@@ -134,9 +150,23 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
   },
+  dayliQuoteTitle: {
+    fontSize: 22,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
   contentText: {
     fontSize: 18,
     color: '#FF1FA5',
+    marginBottom: 15,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  dayliQuoteContent: {
+    fontSize: 18,
+    color: '#fff',
     marginBottom: 15,
     textAlign: 'center',
     fontWeight: 'bold',

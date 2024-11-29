@@ -1,4 +1,3 @@
-import {StyleSheet, Text, View} from 'react-native';
 import {dayliQuotes} from '../../data/dayliQuotes';
 import {useState, useEffect} from 'react';
 import ActionCard from './ActionCard';
@@ -41,10 +40,10 @@ const DayliQuote = () => {
       title="Daily Quote"
       content={dailyQuote?.quote || 'Loading...'}
       hiddenMainButton={true}
+      
     />
   );
 };
 
 export default DayliQuote;
 
-const styles = StyleSheet.create({});

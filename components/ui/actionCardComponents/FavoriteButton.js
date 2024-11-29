@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const FavoriteButton = ({ isFavorite, onPress }) => {
+const FavoriteButton = ({ isFavorite, onPress, isQuoteCard }) => {
     return (
         <TouchableOpacity
           style={[styles.iconButton, isFavorite && styles.iconButtonActive]}
@@ -19,7 +19,8 @@ const FavoriteButton = ({ isFavorite, onPress }) => {
 export default FavoriteButton
 
 const styles = StyleSheet.create({
-    iconButton: {
+  
+      iconButton: {
       padding: 8,
       marginHorizontal: 5,
       borderWidth: 1,

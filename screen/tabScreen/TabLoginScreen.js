@@ -68,7 +68,7 @@ const TabLoginScreen = () => {
     try {
       await AsyncStorage.setItem('userData', JSON.stringify(userData));
       setShowAnimation(true);
-      
+
       setTimeout(() => {
         setShowAnimation(false);
         setIsProfileSet(true);
@@ -231,20 +231,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     marginBottom: 15,
+    borderWidth: 2,
+    borderColor:'#fff'
   },
   saveButton: {
     width: '100%',
     height: 50,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+    borderWidth:2,
+    borderColor:'#fff'
   },
   saveButtonText: {
-    color: '#ff69b4',
-    fontSize: 18,
+    // color: '#ff69b4',
+    fontSize: 22,
     fontWeight: 'bold',
+    color:'#fff'
   },
   profileContainer: {
     alignItems: 'center',
@@ -254,6 +259,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 20,
+    borderWidth:1,
+    paddingHorizontal:22,
+    paddingVertical:6,
+    borderRadius:22,
+    borderColor:'#fff',
+    
   },
   profileName: {
     fontSize: 24,
