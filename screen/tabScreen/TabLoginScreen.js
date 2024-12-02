@@ -15,6 +15,7 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LottieView from 'lottie-react-native';
+import WelcomeLayout from '../../components/Layout/WelcomeLayout';
 
 const TabLoginScreen = () => {
   const [userData, setUserData] = useState({
@@ -102,83 +103,87 @@ const TabLoginScreen = () => {
 
   if (isProfileSet) {
     return (
-      <MainTabLayout>
-        <CustomLinearGradient>
-          <View style={styles.container}>
-            <View style={styles.profileContainer}>
-              <TouchableOpacity
-                onPress={handleEdit}
-                style={styles.imageContainer}>
-                <Image
-                  source={{uri: userData.profileImage}}
-                  style={styles.profileImage}
-                />
-                <View style={styles.editIconOverlay}>
-                  <Icon name="edit" size={24} color="#fff" />
-                </View>
-              </TouchableOpacity>
+      <WelcomeLayout>
+        {/* <MainTabLayout> */}
+          <CustomLinearGradient>
+            <View style={styles.container}>
+              <View style={styles.profileContainer}>
+                <TouchableOpacity
+                  onPress={handleEdit}
+                  style={styles.imageContainer}>
+                  <Image
+                    source={{uri: userData.profileImage}}
+                    style={styles.profileImage}
+                  />
+                  <View style={styles.editIconOverlay}>
+                    <Icon name="edit" size={24} color="#fff" />
+                  </View>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={handleEdit}
-                style={styles.nameContainer}>
-                <Text style={styles.profileName}>{userData.nickname}</Text>
-                <Icon
-                  name="edit"
-                  size={20}
-                  color="#fff"
-                  style={styles.nameEditIcon}
-                />
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={handleEdit}
+                  style={styles.nameContainer}>
+                  <Text style={styles.profileName}>{userData.nickname}</Text>
+                  <Icon
+                    name="edit"
+                    size={20}
+                    color="#fff"
+                    style={styles.nameEditIcon}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </CustomLinearGradient>
-      </MainTabLayout>
+          </CustomLinearGradient>
+        {/* </MainTabLayout> */}
+      </WelcomeLayout>
     );
   }
 
   return (
-    <MainTabLayout>
+    // <WelcomeLayout>
+      <MainTabLayout>
       <CustomLinearGradient>
-        <View style={styles.container}>
-          <TouchableOpacity
-            onPress={handleImagePicker}
-            style={styles.imageContainer}>
-            {userData.profileImage ? (
-              <>
-                <Image
-                  source={{uri: userData.profileImage}}
-                  style={styles.profileImage}
-                />
-                <View style={styles.editIconOverlay}>
-                  <Icon name="edit" size={24} color="#fff" />
-                </View>
-              </>
-            ) : (
-              <View style={styles.placeholderImage}>
-                <Icon name="add-a-photo" size={40} color="#fff" />
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={handleImagePicker}
+          style={styles.imageContainer}>
+          {userData.profileImage ? (
+            <>
+              <Image
+                source={{uri: userData.profileImage}}
+                style={styles.profileImage}
+              />
+              <View style={styles.editIconOverlay}>
+                <Icon name="edit" size={24} color="#fff" />
               </View>
-            )}
-          </TouchableOpacity>
+            </>
+          ) : (
+            <View style={styles.placeholderImage}>
+              <Icon name="add-a-photo" size={40} color="#fff" />
+            </View>
+          )}
+        </TouchableOpacity>
 
-          <Text style={styles.title}>Set up your profile</Text>
+        <Text style={styles.title}>Set up your profile</Text>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Your nickname"
-            value={userData.nickname}
-            onChangeText={text =>
-              setUserData(prev => ({...prev, nickname: text}))
-            }
-            placeholderTextColor="#rgba(255,255,255,0.7)"
-          />
+        <TextInput
+          style={styles.input}
+          placeholder="Your nickname"
+          value={userData.nickname}
+          onChangeText={text =>
+            setUserData(prev => ({...prev, nickname: text}))
+          }
+          placeholderTextColor="#rgba(255,255,255,0.7)"
+        />
 
-          <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-            <Text style={styles.saveButtonText}>Save</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{height: 100}} />
+        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+          <Text style={styles.saveButtonText}>Save</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{height: 100}} />
       </CustomLinearGradient>
-    </MainTabLayout>
+      </MainTabLayout>
+    // </WelcomeLayout>
   );
 };
 
@@ -232,7 +237,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 15,
     borderWidth: 2,
-    borderColor:'#fff'
+    borderColor: '#fff',
   },
   saveButton: {
     width: '100%',
@@ -242,14 +247,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
-    borderWidth:2,
-    borderColor:'#fff'
+    borderWidth: 2,
+    borderColor: '#fff',
   },
   saveButtonText: {
     // color: '#ff69b4',
     fontSize: 22,
     fontWeight: 'bold',
-    color:'#fff'
+    color: '#fff',
   },
   profileContainer: {
     alignItems: 'center',
@@ -259,12 +264,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 20,
-    borderWidth:1,
-    paddingHorizontal:22,
-    paddingVertical:6,
-    borderRadius:22,
-    borderColor:'#fff',
-    
+    borderWidth: 1,
+    paddingHorizontal: 22,
+    paddingVertical: 6,
+    borderRadius: 22,
+    borderColor: '#fff',
   },
   profileName: {
     fontSize: 24,
