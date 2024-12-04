@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
+    maxWidth: '80%',
   },
   percentageText: {
     fontSize: 18,
