@@ -37,7 +37,7 @@ const WelcomeScreen = ({navigation}) => {
       }),
       // Button animation
       Animated.timing(buttonAnim, {
-        toValue: 120,
+        toValue: 110,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
@@ -81,7 +81,7 @@ const WelcomeScreen = ({navigation}) => {
       end={{x: 0, y: 1}}
       style={styles.linearGradient}>
       <ScrollView
-        contentContainerStyle={{height: 400}}
+        contentContainerStyle={{height: 440}}
         showsVerticalScrollIndicator={false}>
         <View style={styles.textContainer}>
           <Animated.Text
