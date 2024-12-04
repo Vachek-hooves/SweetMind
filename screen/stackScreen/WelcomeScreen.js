@@ -23,21 +23,21 @@ const WelcomeScreen = ({navigation}) => {
     Animated.sequence([
       // Title animation
       Animated.timing(titleAnim, {
-        toValue: 80,
+        toValue: 50,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // Subtitle animation
       Animated.timing(subtitleAnim, {
-        toValue: 120,
+        toValue: 40,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // Button animation
       Animated.timing(buttonAnim, {
-        toValue: 160,
+        toValue: 50,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
@@ -152,14 +152,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 52,
+    fontSize: 46,
     fontWeight: 'bold',
     color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
   },
   subtitle: {
-    fontSize: 26,
+    fontSize: 22,
     color: '#fff',
     textAlign: 'center',
     lineHeight: 24,
