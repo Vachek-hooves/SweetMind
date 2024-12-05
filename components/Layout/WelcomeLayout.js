@@ -4,7 +4,7 @@ const WelcomeLayout = ({children}) => {
   return (
     <ImageBackground
       style={styles.backgroundImage}
-      source={require('../../assets/image/bg/bg.png')}>
+      source={require('../../assets/image/bg/bg2.jpg')}>
       {children}
     </ImageBackground>
   );
