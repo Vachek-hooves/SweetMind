@@ -81,7 +81,7 @@ const WelcomeScreen = ({navigation}) => {
       end={{x: 0, y: 1}}
       style={styles.linearGradient}>
       <ScrollView
-        contentContainerStyle={{height: 440}}
+        contentContainerStyle={{flex:1,justifyContent:'space-between'}}
         showsVerticalScrollIndicator={false}>
         <View style={styles.textContainer}>
           <Animated.Text
@@ -121,8 +121,6 @@ const WelcomeScreen = ({navigation}) => {
           </Animated.View>
          
         </View>
-      </ScrollView>
-
       <View style={{ right:-50}}>
         <LottieView
           source={require('../../assets/animations/moodAnimation.json')}
@@ -131,6 +129,8 @@ const WelcomeScreen = ({navigation}) => {
           style={styles.lottie}
         />
       </View>
+      </ScrollView>
+
     </LinearGradient>
   );
 };
@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
     // bottom: 0,
     alignItems: 'center',
     paddingHorizontal: 20,
+    zIndex:100
   },
   title: {
     fontSize: 46,

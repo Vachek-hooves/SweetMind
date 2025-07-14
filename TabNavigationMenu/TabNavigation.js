@@ -8,7 +8,7 @@ import {
   TabLoginScreen,
   TabMoodScreen,
 } from '../screen/tabScreen';
-import {pauseBackgroundMusic, playBackgroundMusic, setupPlayer, toggleBackgroundMusic} from '../components/audio/setupPlayer';
+// import {pauseBackgroundMusic, playBackgroundMusic, setupPlayer, toggleBackgroundMusic} from '../components/audio/setupPlayer';
 
 
 const Tab = createBottomTabNavigator();
@@ -17,33 +17,33 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   // Setup audio player when component mounts
-  useEffect(() => {
-    const subscription = AppState.addEventListener('change', nextAppState => {
-      if (nextAppState === 'active' && isPlaying) {
-        playBackgroundMusic();
-      } else if (nextAppState === 'inactive' || nextAppState === 'background') {
-        pauseBackgroundMusic();
-      }
-    });
-    const initMusic = async () => {
-      await setupPlayer();
-      await playBackgroundMusic();
-      setIsPlaying(true);
-    };
+  // useEffect(() => {
+  //   const subscription = AppState.addEventListener('change', nextAppState => {
+  //     if (nextAppState === 'active' && isPlaying) {
+  //       playBackgroundMusic();
+  //     } else if (nextAppState === 'inactive' || nextAppState === 'background') {
+  //       pauseBackgroundMusic();
+  //     }
+  //   });
+  //   const initMusic = async () => {
+  //     await setupPlayer();
+  //     await playBackgroundMusic();
+  //     setIsPlaying(true);
+  //   };
 
-    initMusic();
+  //   initMusic();
 
-    return () => {
-      subscription.remove();
-      pauseBackgroundMusic();
-    };
-  }, []);
+  //   return () => {
+  //     subscription.remove();
+  //     pauseBackgroundMusic();
+  //   };
+  // }, []);
 
-  const handleMusicToggle = () => {
-    const updatedState=toggleBackgroundMusic()
-    setIsPlaying(updatedState);
-    // Add your music play/pause logic here
-  };
+  // const handleMusicToggle = () => {
+  //   const updatedState=toggleBackgroundMusic()
+  //   setIsPlaying(updatedState);
+  //   // Add your music play/pause logic here
+  // };
 
   return (
     <View style={styles.tabBarContainer}>
@@ -96,7 +96,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
               style={[styles.tabItem, isFocused && styles.tabItemFocused]}>
               <Icon
                 name={iconName}
-                size={28}
+                size={38}
                 color={isFocused || (route.name === 'Sound' && isPlaying) ? '#FF1FA5' : '#666'}
               />
             </TouchableOpacity>
@@ -117,7 +117,7 @@ const TabNavigation = () => {
       <Tab.Screen name="TabLoginScreen" component={TabLoginScreen} />
       <Tab.Screen name="TabMoodScreen" component={TabMoodScreen} />
       <Tab.Screen name="TabFavoriteScreen" component={TabFavoriteScreen} />
-      <Tab.Screen 
+      {/* <Tab.Screen 
         name="Sound" 
         component={EmptyComponent}
         listeners={{
@@ -126,7 +126,7 @@ const TabNavigation = () => {
             e.preventDefault();
           },
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

@@ -128,6 +128,7 @@ const TabFavoriteScreen = () => {
             />
           </View>
           <MoodStatistics />
+          <View style={{height:60}}/>
         </ScrollView>
         <View style={{height: 110}} />
       </LinearGradient>
