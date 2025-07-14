@@ -10,6 +10,9 @@ import {
 import React, {useEffect, useRef} from 'react';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { Dimensions } from 'react-native';
+
+const screenWidth=Dimensions.get('screen')
 
 const WelcomeScreen = ({navigation}) => {
   const titleAnim = useRef(new Animated.Value(-300)).current;
@@ -81,7 +84,7 @@ const WelcomeScreen = ({navigation}) => {
       end={{x: 0, y: 1}}
       style={styles.linearGradient}>
       <ScrollView
-        contentContainerStyle={{flex:1,justifyContent:'space-between'}}
+        contentContainerStyle={{flexGrow:1,justifyContent:'space-between'}}
         showsVerticalScrollIndicator={false}>
         <View style={styles.textContainer}>
           <Animated.Text
@@ -121,7 +124,7 @@ const WelcomeScreen = ({navigation}) => {
           </Animated.View>
          
         </View>
-      <View style={{ right:-50}}>
+      <View style={{ left:'33%'}}>
         <LottieView
           source={require('../../assets/animations/moodAnimation.json')}
           autoPlay
