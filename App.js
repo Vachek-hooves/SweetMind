@@ -787,7 +787,7 @@ function App() {
             </>
           ) : (
             <>
-              <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+              {/* <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} /> */}
               <Stack.Screen name="TabNavigator" component={TabNavigation} />
               <Stack.Screen
                 name="StackFeelingMoodScreen"

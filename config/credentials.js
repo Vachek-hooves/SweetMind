@@ -6,7 +6,7 @@ export const OPTIONS = {
   onInstallConversionDataListener: true,
   onDeepLinkListener: true,
   timeToWaitForATTUserAuthorization: 10,
-  manualStart: true,
+  manualStart: false,
 };
 
 // secret FB key -ce17df32c18b6bd82f1541ed4e58ed6e

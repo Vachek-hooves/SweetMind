@@ -14,6 +14,7 @@ const CustomeWelcome = props => {
 
   return (
     <ImageBackground
+      source={require('../../assets/img/Slice1.jpg')}
       style={{width: '100%', height: '100%', justifyContent: 'center'}}>
       <ActivityIndicator color="gold" size="large" />
     </ImageBackground>
