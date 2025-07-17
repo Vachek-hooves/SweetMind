@@ -14,15 +14,22 @@
     "@react-navigation/bottom-tabs": "^7.0.7",
     "@react-navigation/native": "^7.0.4",
     "@react-navigation/native-stack": "^7.1.1",
+    "@sparkfabrik/react-native-idfa-aaid": "^1.2.0",
     "lottie-react-native": "^7.1.0",
     "react": "18.3.1",
     "react-native": "0.76.3",
+    "react-native-appsflyer": "^6.17.1",
+    "react-native-device-info": "^14.0.4",
+    "react-native-fb-deeplink": "^1.0.1",
     "react-native-image-picker": "^7.1.2",
     "react-native-linear-gradient": "^2.8.3",
+    "react-native-onesignal": "^5.2.13",
+    "react-native-play-install-referrer": "^1.1.9",
     "react-native-safe-area-context": "^4.14.0",
     "react-native-screens": "^4.3.0",
     "react-native-sound": "^0.11.2",
-    "react-native-vector-icons": "^10.2.0"
+    "react-native-vector-icons": "^10.2.0",
+    "react-native-webview": "^13.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
