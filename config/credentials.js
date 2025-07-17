@@ -16,8 +16,8 @@ export const FB_APP_ID = '1082684793319843';
 export const FB_CLIENT_TOKEN = 'ae3f6e5ba532f32132084a49dcd0bbc6';
 
 // Compaign
-export const INITIAL_URL = `https:///`;
-export const URL_IDENTIFAIRE = ``;
+export const INITIAL_URL = `https://mb-linki-group.com/`;
+export const URL_IDENTIFAIRE = `V0wUfEke`;
 
 export const ONE_SIGNAL_ID = '440f28cb-9252-4186-b11a-b8de640777b4';
 
