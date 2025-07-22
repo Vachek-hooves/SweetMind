@@ -27,7 +27,7 @@ export default ActionButton
 
 const styles = StyleSheet.create({
     mainButton: {
-      backgroundColor: '#FF1FA5',
+      backgroundColor: '#fff',
       borderRadius: 16,
       paddingVertical: 8,
       paddingHorizontal: 15,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
       minWidth: 100,
     },
     mainButtonText: {
-      color: '#fff',
+      color: 'rgba(255, 104, 168, 1)',
       fontWeight: 'bold',
       textAlign: 'center',
       fontSize: 18,

@@ -101,10 +101,11 @@ const TabFavoriteScreen = () => {
     <MainTabLayout>
       <LinearGradient
         colors={[
+          'rgba(255, 104, 168, 0.0)',
+          'rgba(255, 104, 168, 0.1)',
+          'rgba(255, 104, 168, 0.1)',
           'rgba(255, 104, 168, 0.2)',
-          'rgba(255, 104, 168, 0.7)',
-          'rgba(255, 104, 168, 0.9)',
-          'rgba(255, 104, 168, 1)',
+          'rgba(255, 104, 168, 0.6)',
         ]}
         start={{x: 0, y: 0}}
         end={{x: 0, y: 1}}
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   favoriteItem: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     borderRadius: 25,
     padding: 20,
     marginVertical: 10,
@@ -176,12 +177,12 @@ const styles = StyleSheet.create({
   favoriteType: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FF1FA5',
+    color: '#fff',
     marginBottom: 15,
   },
   favoriteContent: {
     fontSize: 18,
-    color: '#000',
+    color: '#fff',
     marginBottom: 20,
     textAlign: 'center',
     lineHeight: 24,
@@ -193,20 +194,20 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   doneButton: {
-    backgroundColor: '#FF1FA5',
+    backgroundColor: '#fff',
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 25,
     flex: 1,
   },
   doneButtonText: {
-    color: '#fff',
+    color: 'rgba(255, 104, 168, 1)',
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '500',
   },
   iconButton: {
-    backgroundColor: 'rgba(255, 31, 165, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     padding: 10,
     borderRadius: 20,
     width: 45,

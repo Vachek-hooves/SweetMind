@@ -6,13 +6,14 @@ import {
   Easing,
   TouchableOpacity,
   ScrollView,
+  ImageBackground,
 } from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 
-const screenWidth=Dimensions.get('screen')
+const screenWidth = Dimensions.get('screen');
 
 const WelcomeScreen = ({navigation}) => {
   const titleAnim = useRef(new Animated.Value(-300)).current;
@@ -26,21 +27,21 @@ const WelcomeScreen = ({navigation}) => {
     Animated.sequence([
       // Title animation
       Animated.timing(titleAnim, {
-        toValue: 50,
+        toValue: 150,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // Subtitle animation
       Animated.timing(subtitleAnim, {
-        toValue: 80,
+        toValue: 180,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // Button animation
       Animated.timing(buttonAnim, {
-        toValue: 110,
+        toValue: 210,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
@@ -70,71 +71,75 @@ const WelcomeScreen = ({navigation}) => {
   };
 
   return (
-    <LinearGradient
-      colors={[
-        'rgba(255, 104, 168, 0.5)',
-        'rgba(255, 104, 168, 0.7)',
-        'rgba(255, 104, 168, 0.9)',
-        'rgba(255, 104, 168, 1)',
-        'rgba(255, 104, 168, 1)',
-        'rgba(255, 104, 168, 1)',
-        'rgba(255, 104, 168, 1)',
-      ]}
-      start={{x: 0, y: 0}}
-      end={{x: 0, y: 1}}
-      style={styles.linearGradient}>
-      <ScrollView
-        contentContainerStyle={{flexGrow:1,justifyContent:'space-between'}}
-        showsVerticalScrollIndicator={false}>
-        <View style={styles.textContainer}>
-          <Animated.Text
-            style={[
-              styles.title,
-              {
-                transform: [{translateY: titleAnim}],
-                opacity: opacityAnim,
-              },
-            ]}>
-            Your Sweet Mind
-          </Animated.Text>
+    <ImageBackground
+      source={require('../../assets/image/bg/mindBG.png')}
+      style={{flex: 1}}>
+      <LinearGradient
+        colors={[
+          'rgba(255, 104, 168, 0.0)',
+          'rgba(255, 104, 168, 0.1)',
+          'rgba(255, 104, 168, 0.2)',
+          'rgba(255, 104, 168, 0.2)',
+          'rgba(255, 104, 168, 0.4)',
+          'rgba(255, 104, 168, 0.4)',
+          'rgba(255, 104, 168, 0.5)',
+        ]}
+        start={{x: 0, y: 0}}
+        end={{x: 0, y: 1}}
+        style={styles.linearGradient}>
+        <ScrollView
+          contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between'}}
+          showsVerticalScrollIndicator={false}>
+          <View style={styles.textContainer}>
+            <Animated.Text
+              style={[
+                styles.title,
+                {
+                  transform: [{translateY: titleAnim}],
+                  opacity: opacityAnim,
+                },
+              ]}>
+              Your Sweet Flora Mind
+            </Animated.Text>
 
-          <Animated.Text
-            style={[
-              styles.subtitle,
-              {
-                transform: [{translateY: subtitleAnim}],
-                opacity: opacityAnim,
-              },
-            ]}>
-            Welcome to Your Sweet Mind, your daily companion for positivity and
-            mindfulness.
-          </Animated.Text>
+            <Animated.Text
+              style={[
+                styles.subtitle,
+                {
+                  transform: [{translateY: subtitleAnim}],
+                  opacity: opacityAnim,
+                },
+              ]}>
+              Welcome to Your Sweet Mind, your daily companion for positivity
+              and mindfulness.
+            </Animated.Text>
 
-          <Animated.View
-            style={[
-              styles.buttonContainer,
-              {
-                transform: [{translateY: buttonAnim}],
-                opacity: buttonOpacityAnim,
-              },
-            ]}>
-            <TouchableOpacity style={styles.startButton} onPress={handleStart}>
-              <Text style={styles.buttonText}>Start</Text>
-            </TouchableOpacity>
-          </Animated.View>
-         
-        </View>
-      <View style={{ left:'33%'}}>
+            <Animated.View
+              style={[
+                styles.buttonContainer,
+                {
+                  transform: [{translateY: buttonAnim}],
+                  opacity: buttonOpacityAnim,
+                },
+              ]}>
+              <TouchableOpacity
+                style={styles.startButton}
+                onPress={handleStart}>
+                <Text style={styles.buttonText}>Start</Text>
+              </TouchableOpacity>
+            </Animated.View>
+          </View>
+          {/* <View style={{ left:'33%'}}>
         <LottieView
           source={require('../../assets/animations/moodAnimation.json')}
           autoPlay
           loop
           style={styles.lottie}
         />
-      </View>
-      </ScrollView>
-
-    </LinearGradient>
+      </View> */}
+        </ScrollView>
+      </LinearGradient>
+    </ImageBackground>
   );
 };
 
@@ -153,7 +158,7 @@ const styles = StyleSheet.create({
     // bottom: 0,
     alignItems: 'center',
     paddingHorizontal: 20,
-    zIndex:100
+    zIndex: 100,
   },
   title: {
     fontSize: 46,
@@ -173,7 +178,6 @@ const styles = StyleSheet.create({
     bottom: '-10%',
     width: '100%',
     height: 300,
-
   },
   buttonContainer: {
     width: '100%',
@@ -181,7 +185,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   startButton: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     paddingVertical: 15,
     paddingHorizontal: 60,
     borderRadius: 30,
@@ -195,7 +199,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   buttonText: {
-    color: '#FF1FA5',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',

@@ -97,7 +97,7 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
               <Icon
                 name={iconName}
                 size={38}
-                color={isFocused || (route.name === 'Sound' && isPlaying) ? '#FF1FA5' : '#666'}
+                color={isFocused || (route.name === 'Sound' && isPlaying) ? '#fff' : 'rgba(255, 255, 255, 0.6)'}
               />
             </TouchableOpacity>
           );
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     borderRadius: 40,
     height: 80,
     width: '100%',

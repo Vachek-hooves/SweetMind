@@ -51,7 +51,7 @@ export default SelectMoodBtn;
 
 const styles = StyleSheet.create({
   moodButton: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     borderRadius: 15,
     padding: 15,
     marginBottom: 10,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   moodText: {
     fontSize: 22,
-    color: '#FF1FA5',
+    color: '#fff',
     fontWeight: '800',
   },
 });

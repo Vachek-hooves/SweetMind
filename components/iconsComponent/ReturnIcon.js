@@ -9,7 +9,7 @@ const ReturnIcon = () => {
     <TouchableOpacity
       onPress={() => navigation.goBack()}
       style={styles.container}>
-      <Icon name="arrow-left" size={36} color="#FF1FA5" />
+      <Icon name="arrow-left" size={36} color="#fff" />
     </TouchableOpacity>
   );
 };
@@ -18,7 +18,7 @@ export default ReturnIcon;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     justifyContent: 'center',
     alignItems: 'center',
     width: 60,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     right: 40,
   },
   icon: {
-    color: '#FF1FA5',
+    color: '#fff',
     padding: 10,
   },
 });

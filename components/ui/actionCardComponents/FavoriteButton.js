@@ -10,7 +10,7 @@ const FavoriteButton = ({ isFavorite, onPress, isQuoteCard }) => {
           <Icon
             name="thumbs-up"
             size={24}
-            color={isFavorite ? '#fff' : '#FF1FA5'}
+            color={isFavorite ? 'rgba(255, 104, 168, 1)' : '#fff'}
           />
         </TouchableOpacity>
       );
@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderRadius: 12,
       paddingHorizontal: 22,
-      borderColor: '#FF1FA5',
+      borderColor: '#fff',
     },
     iconButtonActive: {
-      backgroundColor: '#FF1FA5',
-      borderColor: '#FF1FA5',
+      backgroundColor: '#fff',
+      borderColor: '#fff',
     },
   });

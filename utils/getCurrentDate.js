@@ -27,11 +27,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 10,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
   },
   dateText: {
     fontSize: 16,
-    color: '#000',
+    color: '#fff',
     textAlign: 'center',
   },
 });

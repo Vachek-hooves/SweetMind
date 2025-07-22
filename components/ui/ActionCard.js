@@ -116,7 +116,7 @@ const ActionCard = ({
             isCountdown={taskTimer.isActive && taskTimer.taskContent === content}
           />
         )}
-        {isQuoteCard? <View style={{padding:10,backgroundColor:'#ffffff'+90,borderRadius:20}}>
+        {isQuoteCard? <View style={{padding:10,backgroundColor:'rgba(255, 255, 255, 0.9)',borderRadius:20}}>
           <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} isQuoteCard={isQuoteCard} />
         </View>:
         <FavoriteButton isFavorite={isFavorite} onPress={handleFavoritePress} isQuoteCard={isQuoteCard} />
@@ -138,14 +138,14 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     borderRadius: 24,
     padding: 20,
     marginBottom: 30,
   },
   cardTitle: {
     fontSize: 22,
-    color: '#FF1FA5',
+    color: '#fff',
     fontWeight: 'bold',
     marginBottom: 10,
     textAlign: 'center',
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   },
   contentText: {
     fontSize: 18,
-    color: '#FF1FA5',
+    color: '#fff',
     marginBottom: 15,
     textAlign: 'center',
     fontWeight: 'bold',
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainButton: {
-    backgroundColor: '#FF1FA5',
+    backgroundColor: '#fff',
     borderRadius: 16,
     paddingVertical: 8,
     paddingHorizontal: 15,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     minWidth: 100,
   },
   mainButtonText: {
-    color: '#fff',
+    color: 'rgba(255, 104, 168, 1)',
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 18,
@@ -201,14 +201,14 @@ const styles = StyleSheet.create({
     borderColor: '#FF1FA5',
   },
   iconButtonActive: {
-    backgroundColor: '#FF1FA5',
-    borderColor: '#FF1FA5',
+    backgroundColor: '#fff',
+    borderColor: '#fff',
   },
   countdownButton: {
     backgroundColor: '#4CAF50', // Green for active countdown
   },
   completedButton: {
-    backgroundColor: '#FF1FA5', // Return to original color when completed
+    backgroundColor: '#fff', // Return to original color when completed
   },
   disabledButton: {
     backgroundColor: '#ccc',

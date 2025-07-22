@@ -154,7 +154,7 @@ const MoodStatistics = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     borderRadius: 20,
     padding: 20,
     margin: 20,
@@ -170,12 +170,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FF1FA5',
+    color: '#fff',
     marginBottom: 15,
     textAlign: 'center',
   },
   periodSelector: {
-    backgroundColor: '#F0F0F0',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     borderRadius: 20,
     paddingVertical: 8,
     paddingHorizontal: 15,
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   },
   periodText: {
     fontSize: 16,
-    color: '#666',
+    color: '#fff',
   },
   statsContainer: {
     gap: 15,
@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     width: 50,
+    color: '#fff',
   },
   statBar: {
     height: 40,
@@ -221,7 +222,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     borderRadius: 15,
     padding: 5,
     width: '80%',
@@ -232,15 +233,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   selectedPeriod: {
-    backgroundColor: 'rgba(255, 31, 165, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
   periodOptionText: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#666',
+    color: '#fff',
   },
   selectedPeriodText: {
-    color: '#FF1FA5',
+    color: '#fff',
     fontWeight: '600',
   },
 });

@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
     borderRadius: 20,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 104, 168, 1)',
     alignSelf: 'center',
   },
   dateText: {
     fontSize: 18,
-    color: '#FF1FA5',
+    color: '#fff',
     textAlign: 'center',
   },
 });
