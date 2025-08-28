@@ -1,34 +1,14 @@
 import {StyleSheet, Image} from 'react-native';
-export const getMoodEmoji = moodType => {
-  switch (moodType) {
+export const getMoodEmoji = (mood) => {
+  switch (mood.toLowerCase()) {
     case 'happy':
-      return (
-        <Image
-          source={require('../assets/image/icon/happyIcon.png')}
-          style={styles.icon}
-        />
-      );
+      return '😊';
     case 'calm':
-      return (
-        <Image
-          source={require('../assets/image/icon/calmIcon.png')}
-          style={styles.icon}
-        />
-      );
+      return '🧘';
     case 'reflective':
-      return (
-        <Image
-          source={require('../assets/image/icon/reflectionIcon.png')}
-          style={styles.icon}
-        />
-      );
+      return '🤔';
     default:
-      return (
-        <Image
-          source={require('../assets/image/icon/happyIcon.png')}
-          style={styles.icon}
-        />
-      );
+      return '😊';
   }
 };
 

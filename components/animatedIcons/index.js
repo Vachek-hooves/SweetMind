@@ -1,5 +1,3 @@
-import CalmIcon from './CalmIcon';
-import HappyIcon from './HappyIcon';
-import ReflectionIcon from './ReflectionIcon';
-
-export {CalmIcon, HappyIcon, ReflectionIcon};
+export { default as CalmIcon } from './CalmIcon';
+export { default as HappyIcon } from './HappyIcon';
+export { default as ReflectionIcon } from './ReflectionIcon';

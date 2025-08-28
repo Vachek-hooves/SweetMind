@@ -8,6 +8,7 @@ import {
   TabLoginScreen,
   TabMoodScreen,
 } from '../screen/tabScreen';
+import {colors} from '../theme/colors';
 // import {pauseBackgroundMusic, playBackgroundMusic, setupPlayer, toggleBackgroundMusic} from '../components/audio/setupPlayer';
 
 const Tab = createBottomTabNavigator();
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: 'rgba(191, 27, 245, 1)',
+    backgroundColor: colors.primary.swetTeal,
     borderRadius: 40,
     height: 80,
     width: '100%',

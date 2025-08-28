@@ -1,27 +1,27 @@
-import React, { useMemo, useState } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  TouchableOpacity, 
+import React, {useMemo, useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
   Modal,
-  Pressable 
+  Pressable,
 } from 'react-native';
-import { useAppContext } from '../../store/context';
-import { getBtnEmodji } from '../../data/btnEmodji';
+import {useAppContext} from '../../store/context';
+import {getBtnEmodji} from '../../data/btnEmodji';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {colors} from '../../theme/colors';
 
 const PERIODS = ['Day', 'Week', 'Month'];
 
-const PeriodSelector = ({ selectedPeriod, onSelect }) => {
+const PeriodSelector = ({selectedPeriod, onSelect}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.periodSelector}
-        onPress={() => setModalVisible(true)}
-      >
+        onPress={() => setModalVisible(true)}>
         <Text style={styles.periodText}>{selectedPeriod}</Text>
         <Icon name="chevron-down" size={12} color="#666" />
       </TouchableOpacity>
@@ -30,29 +30,27 @@ const PeriodSelector = ({ selectedPeriod, onSelect }) => {
         animationType="fade"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <Pressable 
+        onRequestClose={() => setModalVisible(false)}>
+        <Pressable
           style={styles.modalOverlay}
-          onPress={() => setModalVisible(false)}
-        >
+          onPress={() => setModalVisible(false)}>
           <View style={styles.modalContent}>
-            {PERIODS.map((period) => (
+            {PERIODS.map(period => (
               <TouchableOpacity
                 key={period}
                 style={[
                   styles.periodOption,
-                  selectedPeriod === period && styles.selectedPeriod
+                  selectedPeriod === period && styles.selectedPeriod,
                 ]}
                 onPress={() => {
                   onSelect(period);
                   setModalVisible(false);
-                }}
-              >
-                <Text style={[
-                  styles.periodOptionText,
-                  selectedPeriod === period && styles.selectedPeriodText
-                ]}>
+                }}>
+                <Text
+                  style={[
+                    styles.periodOptionText,
+                    selectedPeriod === period && styles.selectedPeriodText,
+                  ]}>
                   {period}
                 </Text>
               </TouchableOpacity>
@@ -64,20 +62,22 @@ const PeriodSelector = ({ selectedPeriod, onSelect }) => {
   );
 };
 
-const StatBar = ({ percentage, mood, color }) => (
+const StatBar = ({percentage, mood, color}) => (
   <View style={styles.statBarContainer}>
     <Text style={styles.percentageText}>{percentage}%</Text>
-    <View style={[styles.statBar, { backgroundColor: color, width: `${percentage}%` }]}>
-      <View style={styles.emojiContainer}>
-        {getBtnEmodji(mood)}
-      </View>
+    <View
+      style={[
+        styles.statBar,
+        {backgroundColor: color, width: `${percentage}%`},
+      ]}>
+      <View style={styles.emojiContainer}>{getBtnEmodji(mood)}</View>
     </View>
   </View>
 );
 
 const MoodStatistics = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('Month');
-  const { moodStats } = useAppContext();
+  const {moodStats} = useAppContext();
 
   const statistics = useMemo(() => {
     if (!moodStats || Object.keys(moodStats).length === 0) {
@@ -85,7 +85,7 @@ const MoodStatistics = () => {
     }
 
     const now = new Date();
-    const filterDate = (date) => {
+    const filterDate = date => {
       const itemDate = new Date(date);
       switch (selectedPeriod) {
         case 'Day':
@@ -94,8 +94,10 @@ const MoodStatistics = () => {
           const weekAgo = new Date(now.setDate(now.getDate() - 7));
           return itemDate >= weekAgo;
         case 'Month':
-          return itemDate.getMonth() === now.getMonth() && 
-                 itemDate.getFullYear() === now.getFullYear();
+          return (
+            itemDate.getMonth() === now.getMonth() &&
+            itemDate.getFullYear() === now.getFullYear()
+          );
         default:
           return true;
       }
@@ -110,13 +112,16 @@ const MoodStatistics = () => {
       periodTotals[mood] = periodTotal;
     });
 
-    const total = Object.values(periodTotals).reduce((sum, count) => sum + count, 0);
+    const total = Object.values(periodTotals).reduce(
+      (sum, count) => sum + count,
+      0,
+    );
 
     // Calculate percentages
     const stats = Object.entries(periodTotals)
       .map(([mood, count]) => ({
         mood,
-        percentage: total > 0 ? Math.round((count / total) * 100) : 0
+        percentage: total > 0 ? Math.round((count / total) * 100) : 0,
       }))
       .sort((a, b) => b.percentage - a.percentage);
 
@@ -132,14 +137,14 @@ const MoodStatistics = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Statistics</Text>
-      
-      <PeriodSelector 
+
+      <PeriodSelector
         selectedPeriod={selectedPeriod}
         onSelect={setSelectedPeriod}
       />
 
       <View style={styles.statsContainer}>
-        {statistics.map(({ mood, percentage }) => (
+        {statistics.map(({mood, percentage}) => (
           <StatBar
             key={mood}
             percentage={percentage}
@@ -154,7 +159,7 @@ const MoodStatistics = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgba(191, 27, 245, 1)',
+    backgroundColor: colors.buttons.primary,
     borderRadius: 20,
     padding: 20,
     margin: 20,
@@ -222,7 +227,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: 'rgba(191, 27, 245, 1)',
+    backgroundColor: colors.primary.swetTeal,
     borderRadius: 15,
     padding: 5,
     width: '80%',

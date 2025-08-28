@@ -1,4 +1,5 @@
 import {Text, StyleSheet, View} from 'react-native';
+import {colors} from '../theme/colors';
 
 const CurrentDate = ({style}) => {
   const getCurrentDate = () => {
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
     borderRadius: 20,
-    backgroundColor: 'rgba(191, 27, 245, 1)',
+    backgroundColor: colors.primary.swetTeal,
     alignSelf: 'center',
   },
   dateText: {

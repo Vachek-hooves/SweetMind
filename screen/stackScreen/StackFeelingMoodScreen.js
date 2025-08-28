@@ -7,6 +7,7 @@ import ActionCard from '../../components/ui/ActionCard';
 import {getMoodEmoji} from '../../data/moodEmodji';
 import ReturnIcon from '../../components/iconsComponent/ReturnIcon';
 import CurrentDate from '../../utils/CurrentDate';
+import {colors} from '../../theme/colors';
 
 const StackFeelingMoodScreen = ({route}) => {
   const {mood} = route.params;
@@ -36,9 +37,13 @@ const StackFeelingMoodScreen = ({route}) => {
 
   if (!currentMood || !currentTask) {
     return (
-      <View style={styles.container}>
-        <Text>Loading...</Text>
-      </View>
+      <MainStackLayout>
+        <CustomLinearGradient>
+          <View style={styles.loadingContainer}>
+            <Text style={styles.loadingText}>Loading...</Text>
+          </View>
+        </CustomLinearGradient>
+      </MainStackLayout>
     );
   }
 
@@ -48,7 +53,9 @@ const StackFeelingMoodScreen = ({route}) => {
         <View style={styles.container}>
           {/* Mood Header */}
           <View style={styles.headerSection}>
-            <Text style={styles.moodEmoji}>{getMoodEmoji(mood)}</Text>
+            <View style={styles.emojiContainer}>
+              <Text style={styles.moodEmoji}>{getMoodEmoji(mood)}</Text>
+            </View>
             <Text style={styles.moodTitle}>
               {mood.charAt(0).toUpperCase() + mood.slice(1)} Mood
             </Text>
@@ -57,7 +64,7 @@ const StackFeelingMoodScreen = ({route}) => {
 
           {/* Quote Card */}
           <ActionCard
-            title="Happy Quote"
+            title="Daily Quote"
             content={currentTask.quote}
             mainButtonText="New quote"
             onMainButtonPress={getNewQuote}
@@ -78,8 +85,6 @@ const StackFeelingMoodScreen = ({route}) => {
           {/* Date Display */}
           <CurrentDate />
         </View>
-        {/* <ReturnIcon /> */}
-        {/* <View style={{height: 110}} /> */}
       </CustomLinearGradient>
     </MainStackLayout>
   );
@@ -93,32 +98,59 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
   },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    color: colors.text.primary,
+    fontWeight: '600',
+  },
   headerSection: {
     alignItems: 'center',
     marginBottom: 30,
   },
+  emojiContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: colors.accent.pureWhite,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+    shadowColor: colors.accent.deepFlow,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8,
+  },
   moodEmoji: {
-    fontSize: 50,
-    marginBottom: 10,
+    fontSize: 40,
   },
   moodTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    color: colors.text.primary,
     marginBottom: 10,
   },
   description: {
     fontSize: 16,
-    color: '#fff',
+    color: colors.text.primary,
     textAlign: 'center',
     lineHeight: 22,
+    paddingHorizontal: 20,
   },
   dateContainer: {
     alignItems: 'center',
     marginTop: 20,
   },
   dateText: {
-    color: '#fff',
+    color: colors.text.primary,
     fontSize: 16,
   },
 });

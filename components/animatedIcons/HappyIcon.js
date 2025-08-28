@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { Text, StyleSheet, Animated } from 'react-native';
 
 const HappyIcon = () => {
   return (
-    <View>
-      <Text>HappyIcon</Text>
-    </View>
-  )
-}
+    <Text style={styles.emoji}>😊</Text>
+  );
+};
 
-export default HappyIcon
+export default HappyIcon;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  emoji: {
+    fontSize: 32,
+  },
+});

@@ -15,6 +15,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {getMoodEmoji} from '../../data/moodEmodji';
 import {getBtnEmodji} from '../../data/btnEmodji';
 import MoodStatistics from '../../components/FavoriteScreenComponents/MoodStatistics';
+import {colors} from '../../theme/colors';
 
 const PaginationDots = ({currentIndex, total}) => {
   return (
@@ -38,6 +39,7 @@ const FavoriteSection = ({items, type, onRemove}) => {
 
   const handleScroll = event => {
     const contentOffset = event.nativeEvent.contentOffset.x;
+    // console.log('contentOffset', contentOffset);
     const index = Math.round(contentOffset / Dimensions.get('window').width);
     setCurrentIndex(index);
   };
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   favoriteItem: {
-    backgroundColor: 'rgba(191, 27, 245, 1)',
+    backgroundColor: colors.buttons.primary,
     borderRadius: 25,
     padding: 20,
     marginVertical: 10,
@@ -201,7 +203,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   doneButtonText: {
-    color: 'rgba(191, 27, 245, 1)',
+    color: colors.buttons.primary,
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '500',
@@ -240,7 +242,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   cardContainer: {
-    width: '90%',
+    // width: 350,
+    width: Dimensions.get('window').width,
     paddingHorizontal: 20,
     justifyContent: 'center',
     height: 250,

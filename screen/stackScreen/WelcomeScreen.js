@@ -12,6 +12,7 @@ import React, {useEffect, useRef} from 'react';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Dimensions} from 'react-native';
+import {colors} from '../../theme/colors';
 
 const screenWidth = Dimensions.get('screen');
 
@@ -72,18 +73,10 @@ const WelcomeScreen = ({navigation}) => {
 
   return (
     <ImageBackground
-      source={require('../../assets/image/bg/mindBG2.png')}
+      source={require('../../assets/image/bg/mindBG4.png')}
       style={{flex: 1}}>
       <LinearGradient
-        colors={[
-          'rgba(255, 104, 168, 0.0)',
-          'rgba(255, 104, 168, 0.1)',
-          'rgba(255, 104, 168, 0.2)',
-          'rgba(255, 104, 168, 0.2)',
-          'rgba(255, 104, 168, 0.4)',
-          'rgba(255, 104, 168, 0.4)',
-          'rgba(255, 104, 168, 0.5)',
-        ]}
+        colors={colors.gradients.primary}
         start={{x: 0, y: 0}}
         end={{x: 0, y: 1}}
         style={styles.linearGradient}>
@@ -99,7 +92,7 @@ const WelcomeScreen = ({navigation}) => {
                   opacity: opacityAnim,
                 },
               ]}>
-              Mind Sweet and Calm
+              Swet Mind Serenity
             </Animated.Text>
 
             <Animated.Text
@@ -150,11 +143,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   textContainer: {
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // right: 0,
-    // bottom: 0,
     alignItems: 'center',
     paddingHorizontal: 20,
     zIndex: 100,
@@ -162,13 +150,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 46,
     fontWeight: 'bold',
-    color: '#fff',
+    color: colors.text.primary,
     textAlign: 'center',
     marginBottom: 20,
   },
   subtitle: {
     fontSize: 22,
-    color: '#fff',
+    color: colors.text.primary,
     textAlign: 'center',
     lineHeight: 24,
     paddingHorizontal: 20,
@@ -184,12 +172,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   startButton: {
-    backgroundColor: 'rgba(191, 27, 245, 1)',
+    backgroundColor: colors.buttons.primary,
     paddingVertical: 15,
     paddingHorizontal: 60,
     borderRadius: 30,
     elevation: 3,
-    shadowColor: '#000',
+    shadowColor: colors.accent.deepFlow,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -198,7 +186,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
   },
   buttonText: {
-    color: '#fff',
+    color: colors.text.primary,
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',

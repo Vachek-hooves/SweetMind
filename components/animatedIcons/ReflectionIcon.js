@@ -1,13 +1,16 @@
-import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import { Text, StyleSheet, Animated } from 'react-native';
 
 const ReflectionIcon = () => {
   return (
-    <View>
-      <Text>ReflectionIcon</Text>
-    </View>
+    <Text style={styles.emoji}>🤔</Text>
   );
 };
 
 export default ReflectionIcon;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  emoji: {
+    fontSize: 32,
+  },
+});
