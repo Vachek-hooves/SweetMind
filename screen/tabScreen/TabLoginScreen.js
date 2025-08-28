@@ -105,35 +105,35 @@ const TabLoginScreen = () => {
     return (
       <WelcomeLayout>
         {/* <MainTabLayout> */}
-          <CustomLinearGradient>
-            <View style={styles.container}>
-              <View style={styles.profileContainer}>
-                <TouchableOpacity
-                  onPress={handleEdit}
-                  style={styles.imageContainer}>
-                  <Image
-                    source={{uri: userData.profileImage}}
-                    style={styles.profileImage}
-                  />
-                  <View style={styles.editIconOverlay}>
-                    <Icon name="edit" size={24} color="#fff" />
-                  </View>
-                </TouchableOpacity>
+        <CustomLinearGradient>
+          <View style={styles.container}>
+            <View style={styles.profileContainer}>
+              <TouchableOpacity
+                onPress={handleEdit}
+                style={styles.imageContainer}>
+                <Image
+                  source={{uri: userData.profileImage}}
+                  style={styles.profileImage}
+                />
+                <View style={styles.editIconOverlay}>
+                  <Icon name="edit" size={24} color="#fff" />
+                </View>
+              </TouchableOpacity>
 
-                <TouchableOpacity
-                  onPress={handleEdit}
-                  style={styles.nameContainer}>
-                  <Text style={styles.profileName}>{userData.nickname}</Text>
-                  <Icon
-                    name="edit"
-                    size={20}
-                    color="#fff"
-                    style={styles.nameEditIcon}
-                  />
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity
+                onPress={handleEdit}
+                style={styles.nameContainer}>
+                <Text style={styles.profileName}>{userData.nickname}</Text>
+                <Icon
+                  name="edit"
+                  size={20}
+                  color="#fff"
+                  style={styles.nameEditIcon}
+                />
+              </TouchableOpacity>
             </View>
-          </CustomLinearGradient>
+          </View>
+        </CustomLinearGradient>
         {/* </MainTabLayout> */}
       </WelcomeLayout>
     );
@@ -141,48 +141,48 @@ const TabLoginScreen = () => {
 
   return (
     // <WelcomeLayout>
-      <MainTabLayout>
+    <MainTabLayout>
       <CustomLinearGradient>
-      <View style={styles.container}>
-        <TouchableOpacity
-          onPress={handleImagePicker}
-          style={styles.imageContainer}>
-          {userData.profileImage ? (
-            <>
-              <Image
-                source={{uri: userData.profileImage}}
-                style={styles.profileImage}
-              />
-              <View style={styles.editIconOverlay}>
-                <Icon name="edit" size={24} color="#fff" />
+        <View style={styles.container}>
+          <TouchableOpacity
+            onPress={handleImagePicker}
+            style={styles.imageContainer}>
+            {userData.profileImage ? (
+              <>
+                <Image
+                  source={{uri: userData.profileImage}}
+                  style={styles.profileImage}
+                />
+                <View style={styles.editIconOverlay}>
+                  <Icon name="edit" size={24} color="#fff" />
+                </View>
+              </>
+            ) : (
+              <View style={styles.placeholderImage}>
+                <Icon name="add-a-photo" size={40} color="#fff" />
               </View>
-            </>
-          ) : (
-            <View style={styles.placeholderImage}>
-              <Icon name="add-a-photo" size={40} color="#fff" />
-            </View>
-          )}
-        </TouchableOpacity>
+            )}
+          </TouchableOpacity>
 
-        <Text style={styles.title}>Set up your profile</Text>
+          <Text style={styles.title}>Set up your profile</Text>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Your nickname"
-          value={userData.nickname}
-          onChangeText={text =>
-            setUserData(prev => ({...prev, nickname: text}))
-          }
-          placeholderTextColor="#rgba(255,255,255,0.7)"
-        />
+          <TextInput
+            style={styles.input}
+            placeholder="Your nickname"
+            value={userData.nickname}
+            onChangeText={text =>
+              setUserData(prev => ({...prev, nickname: text}))
+            }
+            placeholderTextColor="#rgba(255,255,255,0.7)"
+          />
 
-        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-          <Text style={styles.saveButtonText}>Save</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{height: 100}} />
+          <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+            <Text style={styles.saveButtonText}>Save</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{height: 100}} />
       </CustomLinearGradient>
-      </MainTabLayout>
+    </MainTabLayout>
     // </WelcomeLayout>
   );
 };
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 50,
+    paddingTop: 10,
     justifyContent: 'center',
   },
   imageContainer: {

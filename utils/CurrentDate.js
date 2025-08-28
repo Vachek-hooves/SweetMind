@@ -12,7 +12,6 @@ const CurrentDate = ({style}) => {
       .split('/')
       .join('.');
   };
- 
 
   return (
     <View style={styles.container}>
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 5,
     borderRadius: 20,
-    backgroundColor: 'rgba(255, 104, 168, 1)',
+    backgroundColor: 'rgba(191, 27, 245, 1)',
     alignSelf: 'center',
   },
   dateText: {

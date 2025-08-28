@@ -112,7 +112,7 @@ const TabFavoriteScreen = () => {
         style={styles.linearGradient}>
         <ScrollView
           contentContainerStyle={{marginTop: 50}}
-          style={{marginTop:50}}
+          style={{marginTop: 50}}
           showsVerticalScrollIndicator={false}>
           <View style={styles.container}>
             <Text style={styles.title}>Saved</Text>
@@ -129,7 +129,7 @@ const TabFavoriteScreen = () => {
             />
           </View>
           <MoodStatistics />
-          <View style={{height:60}}/>
+          <View style={{height: 60}} />
         </ScrollView>
         <View style={{height: 110}} />
       </LinearGradient>
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   favoriteItem: {
-    backgroundColor: 'rgba(255, 104, 168, 1)',
+    backgroundColor: 'rgba(191, 27, 245, 1)',
     borderRadius: 25,
     padding: 20,
     marginVertical: 10,
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   doneButtonText: {
-    color: 'rgba(255, 104, 168, 1)',
+    color: 'rgba(191, 27, 245, 1)',
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '500',
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   cardContainer: {
-    width: Dimensions.get('window').width,
+    width: '90%',
     paddingHorizontal: 20,
     justifyContent: 'center',
     height: 250,

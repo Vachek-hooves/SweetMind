@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, TouchableOpacity, AppState} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,7 +9,6 @@ import {
   TabMoodScreen,
 } from '../screen/tabScreen';
 // import {pauseBackgroundMusic, playBackgroundMusic, setupPlayer, toggleBackgroundMusic} from '../components/audio/setupPlayer';
-
 
 const Tab = createBottomTabNavigator();
 
@@ -97,7 +96,11 @@ const CustomTabBar = ({state, descriptors, navigation}) => {
               <Icon
                 name={iconName}
                 size={38}
-                color={isFocused || (route.name === 'Sound' && isPlaying) ? '#fff' : 'rgba(255, 255, 255, 0.6)'}
+                color={
+                  isFocused || (route.name === 'Sound' && isPlaying)
+                    ? '#fff'
+                    : 'rgba(255, 255, 255, 0.6)'
+                }
               />
             </TouchableOpacity>
           );
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: 'rgba(255, 104, 168, 1)',
+    backgroundColor: 'rgba(191, 27, 245, 1)',
     borderRadius: 40,
     height: 80,
     width: '100%',
@@ -160,7 +163,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
- 
   },
   tabItem: {
     flex: 1,

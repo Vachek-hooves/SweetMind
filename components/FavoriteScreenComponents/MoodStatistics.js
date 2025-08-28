@@ -154,7 +154,7 @@ const MoodStatistics = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'rgba(255, 104, 168, 1)',
+    backgroundColor: 'rgba(191, 27, 245, 1)',
     borderRadius: 20,
     padding: 20,
     margin: 20,
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: 'rgba(255, 104, 168, 1)',
+    backgroundColor: 'rgba(191, 27, 245, 1)',
     borderRadius: 15,
     padding: 5,
     width: '80%',

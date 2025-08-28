@@ -6,15 +6,15 @@ import SelectMoodBtn from '../../components/ui/SelectMoodBtn';
 import CurrentDate from '../../utils/CurrentDate';
 import UserCard from '../../components/UserData/UserCard';
 import DayliQuote from '../../components/ui/DayliQuote';
-import { useAppContext } from '../../store/context';
+import {useAppContext} from '../../store/context';
 
 const moods = ['happy', 'calm', 'reflective'];
 
 const TabMoodScreen = () => {
   const navigation = useNavigation();
-  const { trackMoodSelection } = useAppContext();
+  const {trackMoodSelection} = useAppContext();
 
-  const handleMoodSelect = async (mood) => {
+  const handleMoodSelect = async mood => {
     await trackMoodSelection(mood);
     navigation.navigate('StackFeelingMoodScreen', {mood});
   };
@@ -41,7 +41,7 @@ const TabMoodScreen = () => {
           </View>
 
           <CurrentDate />
-      <View style={{height: 110 }} />
+          <View style={{height: 110}} />
         </View>
       </CustomLinearGradient>
     </MainTabLayout>
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     // marginTop: 30,
-   
   },
   age: {
     fontSize: 14,

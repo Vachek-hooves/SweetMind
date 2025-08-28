@@ -27,21 +27,21 @@ const WelcomeScreen = ({navigation}) => {
     Animated.sequence([
       // Title animation
       Animated.timing(titleAnim, {
-        toValue: 150,
+        toValue: 130,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // Subtitle animation
       Animated.timing(subtitleAnim, {
-        toValue: 180,
+        toValue: 150,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
       }),
       // Button animation
       Animated.timing(buttonAnim, {
-        toValue: 210,
+        toValue: 190,
         duration: 1500,
         easing: Easing.bounce,
         useNativeDriver: true,
@@ -72,7 +72,7 @@ const WelcomeScreen = ({navigation}) => {
 
   return (
     <ImageBackground
-      source={require('../../assets/image/bg/mindBG.png')}
+      source={require('../../assets/image/bg/mindBG2.png')}
       style={{flex: 1}}>
       <LinearGradient
         colors={[
@@ -99,7 +99,7 @@ const WelcomeScreen = ({navigation}) => {
                   opacity: opacityAnim,
                 },
               ]}>
-              Your Sweet Flora Mind
+              Mind Sweet and Calm
             </Animated.Text>
 
             <Animated.Text
@@ -110,8 +110,7 @@ const WelcomeScreen = ({navigation}) => {
                   opacity: opacityAnim,
                 },
               ]}>
-              Welcome to Your Sweet Mind, your daily companion for positivity
-              and mindfulness.
+              Welcome! Your daily companion for positivity and mindfulness.
             </Animated.Text>
 
             <Animated.View
@@ -185,7 +184,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   startButton: {
-    backgroundColor: 'rgba(255, 104, 168, 1)',
+    backgroundColor: 'rgba(191, 27, 245, 1)',
     paddingVertical: 15,
     paddingHorizontal: 60,
     borderRadius: 30,

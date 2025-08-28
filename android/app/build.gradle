@@ -80,7 +80,7 @@ android {
 
     namespace "com.sweetmind"
     defaultConfig {
-        applicationId "sweet.flora.mind.pink.gentle"
+        applicationId "mind.svveet.calm"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
