@@ -55,7 +55,7 @@ const CustomeWelcome = props => {
   // }, [props.onWelcomeComplete]);
 
   return (
-    <View style={{width: '100%', height: '100%', backgroundColor: '#707066ff'}}>
+    <View style={{width: '100%', height: '100%', backgroundColor: '#12f0e9ff'}}>
       {/* Current Image */}
       <Animated.View
         style={{
